@@ -1,0 +1,1 @@
+First release of Odolog: fuel and charging log, service and expense log, date-based reminders, statistics and CSV export/import.

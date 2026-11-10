@@ -1,0 +1,25 @@
+{
+  "icon": {
+    "aspect_ratio": "1:1",
+    "prompt": "A mobile app launcher icon as a full-bleed square with NO rounded corners, NO border, NO frame, NO drop shadow and NO text. Background: one flat, perfectly uniform deep teal colour (#0B5F6A) that fills the entire canvas edge to edge, with no gradient, no vignette, no texture and no highlights. In the exact centre: a single bold, minimal, geometric flat-vector emblem in pure white with one small amber (#FFB300) accent, made of thick clean shapes that stay readable at 48 px. The emblem is a semicircular odometer gauge arc with five short tick marks and an amber needle pointing to the upper right, and directly beneath the arc a simple friendly side-view silhouette of a compact car with two round wheels. The whole emblem is perfectly centred and fits inside the central 58 percent of the canvas, leaving wide empty teal margins on all four sides. No other elements, no letters, no numbers, no logo of any real brand, no watermark.",
+    "background_color_xml": {
+      "path": "app/src/main/res/values/ic_launcher_background.xml",
+      "name": "ic_launcher_background"
+    },
+    "outputs": [
+      { "path": "play-store/graphics/icon-512.png", "size": [512, 512], "center_crop": 0.84 },
+      { "path": "app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png", "size": [108, 108], "content_scale": 0.86 },
+      { "path": "app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png", "size": [162, 162], "content_scale": 0.86 },
+      { "path": "app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png", "size": [216, 216], "content_scale": 0.86 },
+      { "path": "app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png", "size": [324, 324], "content_scale": 0.86 },
+      { "path": "app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png", "size": [432, 432], "content_scale": 0.86 }
+    ]
+  },
+  "feature": {
+    "aspect_ratio": "16:9",
+    "prompt": "A wide promotional banner for a car maintenance and fuel log app named \"Odolog\", in a flat, minimal, modern vector illustration style. Background: deep teal (#0B5F6A) with a few very subtle, slightly lighter teal geometric shapes. Left third: the single word \"Odolog\" as a large, bold, clean geometric sans-serif wordmark in white, spelled exactly O-d-o-l-o-g, with a small white odometer gauge emblem with an amber needle above it. Right two thirds: a friendly white side-view compact car in a simple flat style, surrounded by five floating round badges with simple white line icons: a fuel pump, a charging plug with a lightning bolt, a wrench, a calendar with a small bell, and a small bar chart; a few amber (#FFB300) accents. No other text, no slogan, no phone mockup, no logo of any real brand, no watermark. Keep the wordmark and all important elements inside the central area and leave the top 14 percent and the bottom 14 percent of the image as plain background, because those strips will be cropped.",
+    "outputs": [
+      { "path": "play-store/graphics/feature-graphic-1024x500.png", "size": [1024, 500] }
+    ]
+  }
+}

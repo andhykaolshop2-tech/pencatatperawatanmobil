@@ -1,0 +1,1 @@
+Erste Version von Odolog: Tankbuch und Ladeprotokoll, Service- und Kostenübersicht, Erinnerungen nach Datum, Statistik sowie CSV-Export und -Import.

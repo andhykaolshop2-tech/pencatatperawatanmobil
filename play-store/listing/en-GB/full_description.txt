@@ -1,0 +1,30 @@
+Odolog is a simple log book for your car: fill-ups or charging sessions, services, repairs and every other cost in one place – plus a reminder before the next service or MOT is due.
+
+No account. No ads. No subscription. Your data stays on your phone.
+
+WHAT YOU CAN DO
+
+• Fuel tracker and charging log – note every fill-up or charge with date, mileage, amount and price. Odolog works for petrol, diesel, plug-in hybrid and fully electric cars.
+• Car maintenance tracker – keep a vehicle maintenance log book of services, repairs, tyres, MOT tests, insurance, tax and other expenses, so you always know what was done and when.
+• Car service reminders – enter the due date of the next service or MOT and get a notification in good time. Reminders can repeat every few months or years.
+• Car expense tracker – see your total cost, your cost per mile, your average fuel consumption (mpg) or electricity consumption (mi/kWh), with simple charts of your monthly costs and your consumption trend.
+• Your units – miles or kilometres, litres or gallons, kWh and your currency. On UK phones the app starts with miles, litres and UK mpg.
+• Your data – export everything as a CSV file and import it again on a new phone. The file opens in any spreadsheet program.
+• English and German.
+
+FAIR AND PRIVATE
+
+• Everything in this version is free: no ads, no subscription, no locked features.
+• No account and no sign-in. You can start straight away.
+• The app does not even request internet access. Nothing you enter leaves your phone unless you export it yourself.
+• No location, contacts or other sensitive permissions. Odolog only asks whether it may show reminder notifications.
+
+GOOD TO KNOW
+
+• Fuel consumption is calculated from one full tank to the next, so the first result appears after your second full fill-up.
+• Reminders are based on dates. The notification arrives on the day; Android decides the exact time.
+• This first version manages one vehicle. Several vehicles and automatic backups are planned for later updates, together with an optional Pro upgrade as a one-off purchase.
+
+Odolog is an independent app. It is not affiliated with or endorsed by any government agency, testing organisation or vehicle manufacturer. You enter all due dates yourself.
+
+Questions or ideas? Write to us – you will find the contact address on this page.

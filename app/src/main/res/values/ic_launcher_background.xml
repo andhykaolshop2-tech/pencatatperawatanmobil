@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Written by tools/generate_images.py: background colour of the generated icon. -->
+<resources>
+    <color name="ic_launcher_background">#0A606B</color>
+</resources>

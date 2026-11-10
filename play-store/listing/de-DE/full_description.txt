@@ -1,0 +1,30 @@
+Odolog ist ein einfaches Fahrzeugbuch für dein Auto: Tankfüllungen oder Ladevorgänge, Service, Reparaturen und alle weiteren Kosten an einem Ort – plus eine Erinnerung, bevor der nächste Service oder die Hauptuntersuchung fällig ist.
+
+Kein Konto. Keine Werbung. Kein Abo. Deine Daten bleiben auf deinem Handy.
+
+DAS KANNST DU MIT ODOLOG
+
+• Tankbuch und Ladeprotokoll – jede Tankfüllung und jeden Ladevorgang mit Datum, Kilometerstand, Menge und Preis notieren. Odolog eignet sich für Benziner, Diesel, Plug-in-Hybride und reine Elektroautos.
+• Wartung und Service im Blick – Inspektionen, Reparaturen, Reifen, HU/AU, Versicherung, Kfz-Steuer und andere Ausgaben festhalten. So weißt du jederzeit, was wann gemacht wurde.
+• Service-Erinnerungen – trage ein, wann der nächste Service oder die Hauptuntersuchung (HU) fällig ist, und du bekommst rechtzeitig eine Benachrichtigung. Erinnerungen können sich alle paar Monate oder Jahre wiederholen.
+• Autokosten verstehen – Gesamtkosten, Kosten pro Kilometer und Durchschnittsverbrauch (L/100 km oder kWh/100 km), dazu einfache Diagramme zu den monatlichen Kosten und zum Verbrauchsverlauf.
+• Deine Einheiten – Kilometer oder Meilen, Liter oder Gallonen, kWh und deine Währung.
+• Deine Daten – alles als CSV-Datei exportieren und auf einem neuen Handy wieder importieren. Die Datei lässt sich in jeder Tabellenkalkulation öffnen.
+• Vollständig auf Deutsch und Englisch.
+
+FAIR UND PRIVAT
+
+• Diese Version ist komplett kostenlos: keine Werbung, kein Abo, keine gesperrten Funktionen.
+• Kein Konto, keine Anmeldung. Du kannst sofort loslegen.
+• Die App fordert nicht einmal die Internet-Berechtigung an. Nichts von dem, was du einträgst, verlässt dein Handy – außer du exportierst es selbst.
+• Keine Standort-, Kontakt- oder anderen sensiblen Berechtigungen. Odolog fragt nur, ob es Erinnerungen als Benachrichtigung anzeigen darf.
+
+GUT ZU WISSEN
+
+• Der Verbrauch wird von Volltankung zu Volltankung berechnet. Das erste Ergebnis erscheint deshalb nach der zweiten Volltankung.
+• Erinnerungen beziehen sich auf ein Datum. Die Benachrichtigung kommt am jeweiligen Tag; den genauen Zeitpunkt bestimmt Android.
+• Die erste Version verwaltet ein Fahrzeug. Mehrere Fahrzeuge und automatische Backups sind für spätere Updates geplant, zusammen mit einem optionalen Pro-Upgrade als Einmalkauf.
+
+Odolog ist eine unabhängige App und steht in keiner Verbindung zu Behörden, Prüforganisationen oder Fahrzeugherstellern. Alle Termine trägst du selbst ein.
+
+Fragen oder Ideen? Schreib uns – die Kontaktadresse findest du auf dieser Seite.

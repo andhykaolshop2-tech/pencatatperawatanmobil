@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  German. Must contain every translatable string of values/strings.xml
+  (tools/check_project.py verifies this).
+-->
+<resources>
+    <!-- Common actions -->
+    <string name="action_add_entry">Eintrag hinzufügen</string>
+    <string name="action_back">Zurück</string>
+    <string name="action_cancel">Abbrechen</string>
+    <string name="action_delete">Löschen</string>
+    <string name="action_ok">OK</string>
+    <string name="action_save">Speichern</string>
+    <string name="action_show_all">Alle anzeigen</string>
+
+    <!-- Tabs -->
+    <string name="tab_home">Übersicht</string>
+    <string name="tab_log">Verlauf</string>
+    <string name="tab_reminders">Erinnerungen</string>
+    <string name="tab_stats">Statistik</string>
+
+    <!-- Kinds of entries -->
+    <string name="add_fuel">Tanken</string>
+    <string name="add_charge">Laden</string>
+    <string name="add_expense">Service oder Ausgabe</string>
+    <string name="type_fuel">Tanken</string>
+    <string name="type_charge">Laden</string>
+    <string name="type_expense">Service &amp; Kosten</string>
+    <string name="filter_all">Alle</string>
+
+    <!-- Expense categories -->
+    <string name="category_service">Service / Inspektion</string>
+    <string name="category_repair">Reparatur</string>
+    <string name="category_inspection">Hauptuntersuchung (HU/AU)</string>
+    <string name="category_tires">Reifen</string>
+    <string name="category_insurance">Versicherung</string>
+    <string name="category_tax">Kfz-Steuer</string>
+    <string name="category_parking">Parken / Maut</string>
+    <string name="category_cleaning">Wäsche / Pflege</string>
+    <string name="category_financing">Finanzierung / Leasing</string>
+    <string name="category_other">Sonstiges</string>
+
+    <!-- Welcome and overview -->
+    <string name="welcome_title">Starte dein Fahrzeugbuch</string>
+    <string name="welcome_text">Trage deine erste Tankfüllung, deinen ersten Ladevorgang oder Service ein. Nach zwei Volltankungen zeigt Odolog deinen Verbrauch und deine Kosten pro Strecke.</string>
+    <string name="home_this_month">Dieser Monat</string>
+    <string name="home_last_12_months">Letzte 12 Monate</string>
+    <string name="home_latest_entries">Letzte Einträge</string>
+    <string name="home_no_reminders">Noch keine Erinnerungen. Lege eine für den nächsten Service oder die Hauptuntersuchung an.</string>
+    <string name="home_consumption_hint">Trage zwei Volltankungen oder Ladevorgänge mit Kilometerstand ein, dann siehst du hier deinen Verbrauch.</string>
+
+    <!-- Numbers shown on the overview and the statistics tab -->
+    <string name="stat_total_cost">Gesamtkosten</string>
+    <string name="stat_fuel">Kraftstoff</string>
+    <string name="stat_charging">Laden</string>
+    <string name="stat_service_other">Service &amp; Sonstiges</string>
+    <string name="stat_fuel_consumption">Kraftstoffverbrauch</string>
+    <string name="stat_electric_consumption">Stromverbrauch</string>
+    <string name="stat_cost_per_distance">Gesamtkosten pro %1$s</string>
+    <string name="stat_fuel_cost_per_distance">Kraftstoffkosten pro %1$s</string>
+    <string name="stat_charge_cost_per_distance">Ladekosten pro %1$s</string>
+    <string name="stat_distance">Gefahrene Strecke</string>
+    <string name="stat_odometer">Kilometerstand</string>
+    <string name="stat_fuel_total">Getankt</string>
+    <string name="stat_energy_total">Geladen</string>
+
+    <!-- Statistics tab -->
+    <string name="period_12_months">12 Monate</string>
+    <string name="period_this_year">Dieses Jahr</string>
+    <string name="period_all">Gesamt</string>
+    <string name="stats_costs">Kosten</string>
+    <string name="stats_driving">Fahrleistung</string>
+    <string name="stats_consumption">Verbrauch</string>
+    <string name="stats_chart_costs">Kosten pro Monat (letzte 12 Monate)</string>
+    <string name="stats_chart_fuel">Verlauf Kraftstoffverbrauch</string>
+    <string name="stats_chart_electric">Verlauf Stromverbrauch</string>
+    <string name="stats_chart_trend_caption">%1$s je Tankfüllung bzw. Ladevorgang, %2$s bis %3$s</string>
+    <string name="stats_distance_hint">Trage bei mindestens zwei Einträgen den Kilometerstand ein, um die Strecke und die Kosten pro Strecke zu sehen.</string>
+    <string name="stats_empty_title">Noch keine Statistik</string>
+    <string name="stats_empty_text">Sobald du Tankfüllungen, Ladevorgänge oder Kosten einträgst, erscheint hier deine Statistik.</string>
+    <string name="chart_legend_energy">Kraftstoff &amp; Strom</string>
+
+    <!-- Log tab -->
+    <string name="log_empty_title">Noch nichts eingetragen</string>
+    <string name="log_empty_text">Tippe auf +, um den ersten Eintrag anzulegen.</string>
+
+    <!-- Entry form -->
+    <string name="entry_new_fuel">Neue Tankfüllung</string>
+    <string name="entry_edit_fuel">Tankfüllung bearbeiten</string>
+    <string name="entry_new_charge">Neuer Ladevorgang</string>
+    <string name="entry_edit_charge">Ladevorgang bearbeiten</string>
+    <string name="entry_new_expense">Neuer Service / neue Ausgabe</string>
+    <string name="entry_edit_expense">Service / Ausgabe bearbeiten</string>
+    <string name="entry_delete_title">Diesen Eintrag löschen?</string>
+    <string name="entry_delete_text">Das lässt sich nicht rückgängig machen.</string>
+    <string name="field_date">Datum</string>
+    <string name="field_volume">Getankte Menge</string>
+    <string name="field_energy">Geladene Energie</string>
+    <string name="field_total_cost">Gesamtbetrag</string>
+    <string name="field_odometer">Kilometerstand</string>
+    <string name="field_full_tank">Vollgetankt</string>
+    <string name="field_full_charge">Bis zu meinem üblichen Ladestand geladen</string>
+    <string name="field_missed_fuel">Die Tankfüllung davor habe ich nicht eingetragen</string>
+    <string name="field_missed_charge">Den Ladevorgang davor habe ich nicht eingetragen</string>
+    <string name="field_category">Kategorie</string>
+    <string name="field_title">Titel (optional)</string>
+    <string name="field_title_hint">z. B. Ölwechsel</string>
+    <string name="field_note">Notiz (optional)</string>
+    <string name="help_consumption_fuel">Der Verbrauch wird von Volltankung zu Volltankung berechnet. Teilbetankungen dazwischen werden mitgezählt.</string>
+    <string name="help_consumption_charge">Der Verbrauch wird zwischen zwei Ladevorgängen berechnet, die beim gleichen Ladestand enden, zum Beispiel 80 Prozent. Zwischenladungen werden mitgezählt.</string>
+    <string name="odometer_last">Letzter Stand: %1$s</string>
+    <string name="odometer_lower_warning">Niedriger als ein früherer Stand (%1$s)</string>
+    <string name="odometer_optional">Optional, aber nötig für die Verbrauchsberechnung</string>
+    <string name="error_amount_required">Bitte eine Menge größer als null eingeben</string>
+    <string name="error_number">Keine gültige Zahl</string>
+    <string name="error_title_required">Bitte einen Titel eingeben</string>
+
+    <!-- Reminders -->
+    <string name="reminder_add">Erinnerung hinzufügen</string>
+    <string name="reminder_new">Neue Erinnerung</string>
+    <string name="reminder_edit">Erinnerung bearbeiten</string>
+    <string name="reminder_field_title">Was ist fällig?</string>
+    <string name="reminder_field_title_hint">z. B. HU/AU, Inspektion, Ölwechsel</string>
+    <string name="reminder_field_due">Fällig am</string>
+    <string name="reminder_field_repeat">Wiederholung</string>
+    <string name="reminder_field_notify">Erinnern</string>
+    <string name="reminder_kind_service">Service / Inspektion</string>
+    <string name="reminder_kind_inspection">Hauptuntersuchung (HU)</string>
+    <string name="reminder_kind_other">Sonstiges</string>
+    <string name="reminder_repeat_none">Keine Wiederholung</string>
+    <string name="notify_on_the_day">Am Tag selbst</string>
+    <string name="reminder_notify_help">Du bekommst eine Benachrichtigung, wenn der Termin näher rückt, und eine am Fälligkeitstag, jeweils gegen 9 Uhr morgens. Den genauen Zeitpunkt bestimmt Android.</string>
+    <string name="reminder_due_today">Heute fällig</string>
+    <string name="reminder_mark_done">Erledigt</string>
+    <string name="reminder_next_due">Nächster Termin: %1$s</string>
+    <string name="reminder_done_title">Als erledigt markieren?</string>
+    <string name="reminder_done_remove_text">„%1$s“ wiederholt sich nicht und wird deshalb aus der Liste entfernt.</string>
+    <string name="reminder_done_remove">Erledigt</string>
+    <string name="reminder_delete_title">Diese Erinnerung löschen?</string>
+    <string name="reminder_delete_text">Das lässt sich nicht rückgängig machen.</string>
+    <string name="reminders_empty_title">Noch keine Erinnerungen</string>
+    <string name="reminders_empty_text">Trage ein, wann der nächste Service oder die Hauptuntersuchung fällig ist – Odolog erinnert dich rechtzeitig.</string>
+    <string name="notifications_off_title">Benachrichtigungen sind aus</string>
+    <string name="notifications_off_text">Erlaube Benachrichtigungen, damit Odolog dich rechtzeitig erinnern kann.</string>
+    <string name="notifications_off_action">Einstellungen öffnen</string>
+
+    <plurals name="in_days">
+        <item quantity="one">in %1$d Tag</item>
+        <item quantity="other">in %1$d Tagen</item>
+    </plurals>
+    <plurals name="overdue_days">
+        <item quantity="one">seit %1$d Tag überfällig</item>
+        <item quantity="other">seit %1$d Tagen überfällig</item>
+    </plurals>
+    <plurals name="repeat_every_months">
+        <item quantity="one">Wiederholt sich jeden Monat</item>
+        <item quantity="other">Wiederholt sich alle %1$d Monate</item>
+    </plurals>
+    <plurals name="notify_days_before">
+        <item quantity="one">%1$d Tag vorher</item>
+        <item quantity="other">%1$d Tage vorher</item>
+    </plurals>
+
+    <!-- Notifications -->
+    <string name="notification_channel_name">Erinnerungen</string>
+    <string name="notification_channel_description">Erinnerungen an Service und Hauptuntersuchung</string>
+    <string name="notification_text_upcoming">Fällig am %1$s (%2$s)</string>
+    <string name="notification_text_today">Heute fällig</string>
+    <string name="notification_text_overdue">Überfällig seit %1$s</string>
+
+    <!-- First start -->
+    <string name="setup_title">Willkommen bei Odolog</string>
+    <string name="setup_text">Ein einfaches Fahrzeugbuch für Tanken, Laden, Service und Kosten. Deine Daten bleiben auf diesem Gerät – ganz ohne Konto.\n\nPrüfe zuerst diese Einstellungen. Du kannst sie jederzeit ändern.</string>
+    <string name="setup_start">Los geht’s</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Einstellungen</string>
+    <string name="settings_section_vehicle">Fahrzeug und Einheiten</string>
+    <string name="settings_section_data">Deine Daten</string>
+    <string name="settings_section_about">Über die App</string>
+    <string name="settings_vehicle_name">Fahrzeugname</string>
+    <string name="settings_vehicle_name_hint">z. B. Mein Auto</string>
+    <string name="settings_not_set">Nicht festgelegt</string>
+    <string name="settings_powertrain">Antrieb</string>
+    <string name="powertrain_combustion">Benzin oder Diesel</string>
+    <string name="powertrain_electric">Elektro</string>
+    <string name="powertrain_hybrid">Plug-in-Hybrid</string>
+    <string name="settings_distance_unit">Strecke</string>
+    <string name="settings_volume_unit">Kraftstoffmenge</string>
+    <string name="settings_fuel_economy">Kraftstoffverbrauch</string>
+    <string name="settings_electric_economy">Stromverbrauch</string>
+    <string name="settings_currency">Währung</string>
+    <string name="unit_kilometers">Kilometer (km)</string>
+    <string name="unit_miles">Meilen (mi)</string>
+    <string name="unit_liters">Liter (L)</string>
+    <string name="unit_gallons_us">US-Gallonen (gal)</string>
+    <string name="unit_gallons_uk">Britische Gallonen (gal)</string>
+    <string name="settings_export">CSV-Datei exportieren</string>
+    <string name="settings_export_summary">Alle Einträge und Erinnerungen in einer Datei sichern, als Backup oder für ein neues Handy</string>
+    <string name="settings_import">CSV-Datei importieren</string>
+    <string name="settings_import_summary">Eine Datei einlesen, die aus Odolog exportiert wurde</string>
+    <string name="settings_delete_all">Alle Daten löschen</string>
+    <string name="settings_delete_all_summary">Alle Einträge und Erinnerungen von diesem Gerät entfernen</string>
+    <string name="settings_language">App-Sprache</string>
+    <string name="settings_language_summary">Deutsch oder Englisch, unabhängig von der Gerätesprache</string>
+    <string name="settings_privacy">Datenschutz</string>
+    <string name="settings_privacy_summary">Deine Daten bleiben auf diesem Gerät</string>
+    <string name="settings_licenses">Open-Source-Lizenzen</string>
+    <string name="settings_licenses_summary">In dieser App verwendete Software</string>
+    <string name="settings_version">Version %1$s · PersonalizePro Labs</string>
+
+    <!-- Export, import, delete -->
+    <string name="export_done">%1$d Einträge und %2$d Erinnerungen exportiert</string>
+    <string name="export_failed">Export fehlgeschlagen. Bitte einen anderen Speicherort wählen.</string>
+    <string name="import_title">CSV-Datei importieren</string>
+    <string name="import_found">Diese Datei enthält %1$d Einträge und %2$d Erinnerungen.</string>
+    <string name="import_skipped">%1$d Zeilen konnten nicht gelesen werden und werden übersprungen.</string>
+    <string name="import_mode_add">Zu meinen Daten hinzufügen (Duplikate werden übersprungen)</string>
+    <string name="import_mode_replace">Meine Daten ersetzen (alles auf diesem Gerät wird vorher gelöscht)</string>
+    <string name="import_action">Importieren</string>
+    <string name="import_done">%1$d Einträge und %2$d Erinnerungen importiert</string>
+    <string name="import_failed_title">Datei kann nicht importiert werden</string>
+    <string name="import_failed_text">Die Datei ist keine Odolog-CSV-Datei oder sie ist leer. Wähle eine Datei, die aus dieser App exportiert wurde.</string>
+    <string name="delete_all_text">Damit werden alle Einträge und Erinnerungen auf diesem Gerät endgültig gelöscht. Exportiere vorher eine CSV-Datei, wenn du eine Kopie behalten möchtest.</string>
+    <string name="delete_all_done">Alle Daten gelöscht</string>
+
+    <!-- Privacy and licenses -->
+    <string name="privacy_summary">Odolog speichert alles, was du einträgst, nur auf diesem Gerät.\n\n• Kein Konto, keine Anmeldung\n• Keine Werbung, keine Analyse, kein Tracking\n• Die App hat keine Internet-Berechtigung und kann deine Daten deshalb nirgendwohin senden\n• Du entscheidest, wann du deine Daten als CSV-Datei exportierst und wo du sie speicherst\n\nWenn du die App deinstallierst, werden ihre Daten von diesem Gerät gelöscht.</string>
+    <string name="privacy_open_full">Vollständige Erklärung</string>
+    <string name="licenses_intro">Odolog verwendet Open-Source-Software:\n\n• Jetpack Compose und AndroidX – Copyright The Android Open Source Project\n• Kotlin und kotlinx.coroutines – Copyright JetBrains s.r.o. und Mitwirkende\n• Material Icons – Copyright Google LLC\n\nSie alle stehen unter der Apache License, Version 2.0:</string>
+</resources>

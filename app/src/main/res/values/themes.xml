@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Window theme (used before Compose draws and for the window background).
+      The look of the screens themselves is defined in ui/Theme.kt.
+      A plain platform theme is enough: the app has no AppCompat / Material View dependency.
+    -->
+    <style name="Theme.Odolog" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
+    </style>
+</resources>

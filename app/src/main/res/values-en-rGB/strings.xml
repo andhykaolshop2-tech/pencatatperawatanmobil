@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- British English: only the strings that differ from values/strings.xml. -->
+<resources>
+    <string name="category_inspection">MOT / inspection</string>
+    <string name="category_tires">Tyres</string>
+    <string name="category_tax">Vehicle tax</string>
+    <string name="category_financing">Finance / lease</string>
+    <string name="powertrain_combustion">Petrol or diesel</string>
+    <string name="unit_kilometers">Kilometres (km)</string>
+    <string name="unit_liters">Litres (L)</string>
+    <string name="settings_licenses">Open-source licences</string>
+    <string name="reminder_kind_inspection">MOT / inspection</string>
+    <string name="reminder_field_title_hint">e.g. MOT, annual service</string>
+    <string name="home_no_reminders">No reminders yet. Add one for the next service or MOT.</string>
+    <string name="reminders_empty_text">Add the due date of your next service or MOT and Odolog reminds you in time.</string>
+    <string name="notification_channel_description">Service and MOT reminders</string>
+</resources>

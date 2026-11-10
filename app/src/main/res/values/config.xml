@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Values that are not translated. -->
+<resources>
+    <!--
+      Where the privacy policy is hosted (the file is docs/privacy-policy.html in this repository).
+      If you host it at another address, change it here AND use the same address in Play Console.
+    -->
+    <string name="privacy_policy_url" translatable="false">https://kantoryoga.web.id/odolog/privacy-policy.html</string>
+</resources>

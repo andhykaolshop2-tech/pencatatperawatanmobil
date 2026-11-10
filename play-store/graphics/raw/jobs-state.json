@@ -1,0 +1,44 @@
+{
+  "icon": {
+    "attempts": [
+      {
+        "uuid": "8ecb1a2a-dd40-11f1-aa3b-5ede1b9b28e9",
+        "model": "gpt-image-2",
+        "request": {
+          "aspect_ratio": "1:1",
+          "mode": "low",
+          "resolution": "4K"
+        },
+        "prompt": "A mobile app launcher icon as a full-bleed square with NO rounded corners, NO border, NO frame, NO drop shadow and NO text. Background: one flat, perfectly uniform deep teal colour (#0B5F6A) that fills the entire canvas edge to edge, with no gradient, no vignette, no texture and no highlights. In the exact centre: a single bold, minimal, geometric flat-vector emblem in pure white with one small amber (#FFB300) accent, made of thick clean shapes that stay readable at 48 px. The emblem is a semicircular odometer gauge arc with five short tick marks and an amber needle pointing to the upper right, and directly beneath the arc a simple friendly side-view silhouette of a compact car with two round wheels. The whole emblem is perfectly centred and fits inside the central 58 percent of the canvas, leaving wide empty teal margins on all four sides. No other elements, no letters, no numbers, no logo of any real brand, no watermark.",
+        "submitted_at": "2026-11-10T19:54:37Z",
+        "estimated_credit": 4,
+        "status": "completed",
+        "file": "icon-01-8ecb1a2a.png",
+        "finished_at": "2026-11-10T19:55:24Z",
+        "used_credit": 4
+      }
+    ],
+    "selected": "icon-01-8ecb1a2a.png"
+  },
+  "feature": {
+    "attempts": [
+      {
+        "uuid": "ab358f9c-dd40-11f1-9f43-968d597ef497",
+        "model": "gpt-image-2",
+        "request": {
+          "aspect_ratio": "16:9",
+          "mode": "low",
+          "resolution": "4K"
+        },
+        "prompt": "A wide promotional banner for a car maintenance and fuel log app named \"Odolog\", in a flat, minimal, modern vector illustration style. Background: deep teal (#0B5F6A) with a few very subtle, slightly lighter teal geometric shapes. Left third: the single word \"Odolog\" as a large, bold, clean geometric sans-serif wordmark in white, spelled exactly O-d-o-l-o-g, with a small white odometer gauge emblem with an amber needle above it. Right two thirds: a friendly white side-view compact car in a simple flat style, surrounded by five floating round badges with simple white line icons: a fuel pump, a charging plug with a lightning bolt, a wrench, a calendar with a small bell, and a small bar chart; a few amber (#FFB300) accents. No other text, no slogan, no phone mockup, no logo of any real brand, no watermark. Keep the wordmark and all important elements inside the central area and leave the top 14 percent and the bottom 14 percent of the image as plain background, because those strips will be cropped.",
+        "submitted_at": "2026-11-10T19:55:24Z",
+        "estimated_credit": 4,
+        "status": "completed",
+        "file": "feature-01-ab358f9c.png",
+        "finished_at": "2026-11-10T19:56:31Z",
+        "used_credit": 4
+      }
+    ],
+    "selected": "feature-01-ab358f9c.png"
+  }
+}

@@ -1,0 +1,11 @@
+# Keep line endings stable no matter which PC checks the repo out.
+* text=auto eol=lf
+*.bat text eol=crlf
+gradlew text eol=lf
+
+*.jar binary
+# Demo CSV files keep their byte order mark and CRLF line ends (like the app's own export).
+*.csv -text
+*.png binary
+*.jpg binary
+*.webp binary

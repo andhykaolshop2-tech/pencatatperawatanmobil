@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Canadian English: only the strings that differ from values/strings.xml.
+  Some texts are repeated on purpose: without this file Android would use the British
+  texts ("tyres", "petrol", "MOT") for Canadian phones.
+-->
+<resources>
+    <string name="category_inspection">Inspection</string>
+    <string name="category_tires">Tires</string>
+    <string name="category_tax">Tax / registration</string>
+    <string name="category_financing">Loan / lease</string>
+    <string name="powertrain_combustion">Gas or diesel</string>
+    <string name="unit_kilometers">Kilometres (km)</string>
+    <string name="unit_liters">Litres (L)</string>
+    <string name="settings_licenses">Open-source licences</string>
+    <string name="reminder_kind_inspection">Inspection</string>
+    <string name="reminder_field_title_hint">e.g. Oil change, inspection</string>
+    <string name="home_no_reminders">No reminders yet. Add one for the next service or inspection.</string>
+    <string name="reminders_empty_text">Add the due date of your next service or inspection and Odolog reminds you in time.</string>
+    <string name="notification_channel_description">Service and inspection reminders</string>
+</resources>

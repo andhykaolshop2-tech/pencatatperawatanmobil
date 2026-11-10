@@ -1,0 +1,2 @@
+# Only needed for the image post-processing step of tools/generate_images.py
+Pillow>=10.0

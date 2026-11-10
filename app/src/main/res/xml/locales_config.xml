@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The languages of the app, shown under "App language" in the Android 13+ system settings.
+  Keep this list in sync with the res/values-* folders.
+-->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="en-US" />
+    <locale android:name="en-GB" />
+    <locale android:name="en-AU" />
+    <locale android:name="en-CA" />
+    <locale android:name="de" />
+</locale-config>

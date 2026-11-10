@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  English (US spelling) - the default language.
+  German lives in values-de/strings.xml and must contain every translatable string of this file.
+  values-en-rGB, values-en-rAU and values-en-rCA only override the few strings that differ there.
+
+  Rules for editing: write apostrophes as ’ (or escape them as \'), write & as &amp;,
+  use positional arguments (%1$s, %1$d) and avoid a literal percent sign.
+-->
+<resources>
+    <string name="app_name" translatable="false">Odolog</string>
+
+    <!-- Common actions -->
+    <string name="action_add_entry">Add entry</string>
+    <string name="action_back">Back</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_ok">OK</string>
+    <string name="action_save">Save</string>
+    <string name="action_show_all">Show all</string>
+
+    <!-- Tabs -->
+    <string name="tab_home">Overview</string>
+    <string name="tab_log">Log</string>
+    <string name="tab_reminders">Reminders</string>
+    <string name="tab_stats">Statistics</string>
+
+    <!-- Kinds of entries -->
+    <string name="add_fuel">Fill-up</string>
+    <string name="add_charge">Charge</string>
+    <string name="add_expense">Service or expense</string>
+    <string name="type_fuel">Fill-up</string>
+    <string name="type_charge">Charge</string>
+    <string name="type_expense">Service &amp; costs</string>
+    <string name="filter_all">All</string>
+
+    <!-- Expense categories -->
+    <string name="category_service">Service</string>
+    <string name="category_repair">Repair</string>
+    <string name="category_inspection">Inspection</string>
+    <string name="category_tires">Tires</string>
+    <string name="category_insurance">Insurance</string>
+    <string name="category_tax">Tax / registration</string>
+    <string name="category_parking">Parking / tolls</string>
+    <string name="category_cleaning">Car wash</string>
+    <string name="category_financing">Loan / lease</string>
+    <string name="category_other">Other</string>
+
+    <!-- Welcome and overview -->
+    <string name="welcome_title">Start your log book</string>
+    <string name="welcome_text">Add your first fill-up, charge or service. After two full fill-ups Odolog shows your consumption and your cost per distance.</string>
+    <string name="home_this_month">This month</string>
+    <string name="home_last_12_months">Last 12 months</string>
+    <string name="home_latest_entries">Latest entries</string>
+    <string name="home_no_reminders">No reminders yet. Add one for the next service or inspection.</string>
+    <string name="home_consumption_hint">Log two full fill-ups or charges with the odometer reading to see your consumption.</string>
+
+    <!-- Numbers shown on the overview and the statistics tab -->
+    <string name="stat_total_cost">Total cost</string>
+    <string name="stat_fuel">Fuel</string>
+    <string name="stat_charging">Charging</string>
+    <string name="stat_service_other">Service &amp; other</string>
+    <string name="stat_fuel_consumption">Fuel consumption</string>
+    <string name="stat_electric_consumption">Electric consumption</string>
+    <!-- %1$s is the distance unit: km or mi -->
+    <string name="stat_cost_per_distance">Total cost per %1$s</string>
+    <string name="stat_fuel_cost_per_distance">Fuel cost per %1$s</string>
+    <string name="stat_charge_cost_per_distance">Charging cost per %1$s</string>
+    <string name="stat_distance">Distance driven</string>
+    <string name="stat_odometer">Odometer</string>
+    <string name="stat_fuel_total">Fuel added</string>
+    <string name="stat_energy_total">Energy charged</string>
+
+    <!-- Statistics tab -->
+    <string name="period_12_months">12 months</string>
+    <string name="period_this_year">This year</string>
+    <string name="period_all">All time</string>
+    <string name="stats_costs">Costs</string>
+    <string name="stats_driving">Driving</string>
+    <string name="stats_consumption">Consumption</string>
+    <string name="stats_chart_costs">Costs per month (last 12 months)</string>
+    <string name="stats_chart_fuel">Fuel consumption trend</string>
+    <string name="stats_chart_electric">Electric consumption trend</string>
+    <!-- %1$s is the unit (for example L/100 km), %2$s and %3$s are dates -->
+    <string name="stats_chart_trend_caption">%1$s per fill-up or charge, %2$s to %3$s</string>
+    <string name="stats_distance_hint">Add the odometer reading to at least two entries to see the distance and the cost per distance.</string>
+    <string name="stats_empty_title">No statistics yet</string>
+    <string name="stats_empty_text">Add fill-ups, charges or costs and your statistics appear here.</string>
+    <string name="chart_legend_energy">Fuel &amp; charging</string>
+
+    <!-- Log tab -->
+    <string name="log_empty_title">Nothing logged yet</string>
+    <string name="log_empty_text">Tap + to add your first entry.</string>
+
+    <!-- Entry form -->
+    <string name="entry_new_fuel">New fill-up</string>
+    <string name="entry_edit_fuel">Edit fill-up</string>
+    <string name="entry_new_charge">New charge</string>
+    <string name="entry_edit_charge">Edit charge</string>
+    <string name="entry_new_expense">New service or expense</string>
+    <string name="entry_edit_expense">Edit service or expense</string>
+    <string name="entry_delete_title">Delete this entry?</string>
+    <string name="entry_delete_text">This cannot be undone.</string>
+    <string name="field_date">Date</string>
+    <string name="field_volume">Fuel amount</string>
+    <string name="field_energy">Energy charged</string>
+    <string name="field_total_cost">Total cost</string>
+    <string name="field_odometer">Odometer</string>
+    <string name="field_full_tank">Full tank</string>
+    <string name="field_full_charge">Charged to my usual level</string>
+    <string name="field_missed_fuel">I did not log the fill-up before this one</string>
+    <string name="field_missed_charge">I did not log the charge before this one</string>
+    <string name="field_category">Category</string>
+    <string name="field_title">Title (optional)</string>
+    <string name="field_title_hint">e.g. Oil change</string>
+    <string name="field_note">Note (optional)</string>
+    <string name="help_consumption_fuel">Consumption is measured from one full tank to the next. Partial fill-ups in between are added up.</string>
+    <string name="help_consumption_charge">Consumption is measured between two charges that end at the same level, for example 80 percent. Top-ups in between are added up.</string>
+    <string name="odometer_last">Last reading: %1$s</string>
+    <string name="odometer_lower_warning">Lower than an earlier reading (%1$s)</string>
+    <string name="odometer_optional">Optional, but needed to calculate consumption</string>
+    <string name="error_amount_required">Enter an amount greater than zero</string>
+    <string name="error_number">Not a valid number</string>
+    <string name="error_title_required">Enter a title</string>
+
+    <!-- Reminders -->
+    <string name="reminder_add">Add reminder</string>
+    <string name="reminder_new">New reminder</string>
+    <string name="reminder_edit">Edit reminder</string>
+    <string name="reminder_field_title">What is due?</string>
+    <string name="reminder_field_title_hint">e.g. Oil change, inspection</string>
+    <string name="reminder_field_due">Due date</string>
+    <string name="reminder_field_repeat">Repeat</string>
+    <string name="reminder_field_notify">Remind me</string>
+    <string name="reminder_kind_service">Service</string>
+    <string name="reminder_kind_inspection">Inspection</string>
+    <string name="reminder_kind_other">Other</string>
+    <string name="reminder_repeat_none">Does not repeat</string>
+    <string name="notify_on_the_day">On the day</string>
+    <string name="reminder_notify_help">You get one notification when the reminder comes up and one on the due date, around 9 in the morning. Android chooses the exact time.</string>
+    <string name="reminder_due_today">Due today</string>
+    <string name="reminder_mark_done">Done</string>
+    <string name="reminder_next_due">Next due date: %1$s</string>
+    <string name="reminder_done_title">Mark as done?</string>
+    <string name="reminder_done_remove_text">“%1$s” does not repeat, so it will be removed from the list.</string>
+    <string name="reminder_done_remove">Done</string>
+    <string name="reminder_delete_title">Delete this reminder?</string>
+    <string name="reminder_delete_text">This cannot be undone.</string>
+    <string name="reminders_empty_title">No reminders yet</string>
+    <string name="reminders_empty_text">Add the due date of your next service or inspection and Odolog reminds you in time.</string>
+    <string name="notifications_off_title">Notifications are off</string>
+    <string name="notifications_off_text">Allow notifications so that Odolog can remind you when something is due.</string>
+    <string name="notifications_off_action">Open settings</string>
+
+    <plurals name="in_days">
+        <item quantity="one">in %1$d day</item>
+        <item quantity="other">in %1$d days</item>
+    </plurals>
+    <plurals name="overdue_days">
+        <item quantity="one">%1$d day overdue</item>
+        <item quantity="other">%1$d days overdue</item>
+    </plurals>
+    <plurals name="repeat_every_months">
+        <item quantity="one">Repeats every month</item>
+        <item quantity="other">Repeats every %1$d months</item>
+    </plurals>
+    <plurals name="notify_days_before">
+        <item quantity="one">%1$d day before</item>
+        <item quantity="other">%1$d days before</item>
+    </plurals>
+
+    <!-- Notifications -->
+    <string name="notification_channel_name">Reminders</string>
+    <string name="notification_channel_description">Service and inspection reminders</string>
+    <!-- %1$s is a date, %2$s is a text like "in 14 days" -->
+    <string name="notification_text_upcoming">Due on %1$s (%2$s)</string>
+    <string name="notification_text_today">Due today</string>
+    <string name="notification_text_overdue">Overdue since %1$s</string>
+
+    <!-- First start -->
+    <string name="setup_title">Welcome to Odolog</string>
+    <string name="setup_text">A simple log book for fuel, charging, service and costs. Your data stays on this phone – no account needed.\n\nCheck these settings first. You can change them at any time.</string>
+    <string name="setup_start">Get started</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_section_vehicle">Vehicle and units</string>
+    <string name="settings_section_data">Your data</string>
+    <string name="settings_section_about">About</string>
+    <string name="settings_vehicle_name">Vehicle name</string>
+    <string name="settings_vehicle_name_hint">e.g. My car</string>
+    <string name="settings_not_set">Not set</string>
+    <string name="settings_powertrain">Drive type</string>
+    <string name="powertrain_combustion">Gas or diesel</string>
+    <string name="powertrain_electric">Electric</string>
+    <string name="powertrain_hybrid">Plug-in hybrid</string>
+    <string name="settings_distance_unit">Distance</string>
+    <string name="settings_volume_unit">Fuel volume</string>
+    <string name="settings_fuel_economy">Fuel consumption</string>
+    <string name="settings_electric_economy">Electric consumption</string>
+    <string name="settings_currency">Currency</string>
+    <string name="unit_kilometers">Kilometers (km)</string>
+    <string name="unit_miles">Miles (mi)</string>
+    <string name="unit_liters">Liters (L)</string>
+    <string name="unit_gallons_us">US gallons (gal)</string>
+    <string name="unit_gallons_uk">UK gallons (gal)</string>
+    <string name="settings_export">Export CSV file</string>
+    <string name="settings_export_summary">Save all entries and reminders as one file, as a backup or for a new phone</string>
+    <string name="settings_import">Import CSV file</string>
+    <string name="settings_import_summary">Read a file that was exported from Odolog</string>
+    <string name="settings_delete_all">Delete all data</string>
+    <string name="settings_delete_all_summary">Remove every entry and reminder from this phone</string>
+    <string name="settings_language">App language</string>
+    <string name="settings_language_summary">English or German, independent of the phone language</string>
+    <string name="settings_privacy">Privacy</string>
+    <string name="settings_privacy_summary">Your data stays on this phone</string>
+    <string name="settings_licenses">Open-source licenses</string>
+    <string name="settings_licenses_summary">Software used in this app</string>
+    <string name="settings_version">Version %1$s · PersonalizePro Labs</string>
+
+    <!-- Export, import, delete -->
+    <string name="export_done">Exported %1$d entries and %2$d reminders</string>
+    <string name="export_failed">Export failed. Please try another location.</string>
+    <string name="import_title">Import CSV file</string>
+    <string name="import_found">This file contains %1$d entries and %2$d reminders.</string>
+    <string name="import_skipped">%1$d rows could not be read and will be skipped.</string>
+    <string name="import_mode_add">Add to my data (duplicates are skipped)</string>
+    <string name="import_mode_replace">Replace my data (everything on this phone is deleted first)</string>
+    <string name="import_action">Import</string>
+    <string name="import_done">Imported %1$d entries and %2$d reminders</string>
+    <string name="import_failed_title">Cannot import this file</string>
+    <string name="import_failed_text">The file is not an Odolog CSV file, or it is empty. Choose a file that was exported from this app.</string>
+    <string name="delete_all_text">This permanently deletes every entry and reminder on this phone. Export a CSV file first if you want to keep a copy.</string>
+    <string name="delete_all_done">All data deleted</string>
+
+    <!-- Privacy and licenses -->
+    <string name="privacy_summary">Odolog stores everything you enter only on this phone.\n\n• No account, no sign-in\n• No ads, no analytics, no tracking\n• The app has no internet permission, so it cannot send your data anywhere\n• You decide when to export your data as a CSV file and where to save it\n\nIf you uninstall the app, its data is deleted from this phone.</string>
+    <string name="privacy_open_full">Full policy</string>
+    <string name="licenses_intro">Odolog is built with open-source software:\n\n• Jetpack Compose and AndroidX – Copyright The Android Open Source Project\n• Kotlin and kotlinx.coroutines – Copyright JetBrains s.r.o. and contributors\n• Material icons – Copyright Google LLC\n\nAll of them are licensed under the Apache License, Version 2.0:</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android 12 and newer.
+
+  Cloud backup is switched off: the app promises that the data stays on the phone.
+  A direct phone-to-phone transfer (when a new phone is set up from the old one) is
+  allowed, because the data then only moves between the user's own devices.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="root" path="." />
+        <exclude domain="file" path="." />
+        <exclude domain="database" path="." />
+        <exclude domain="sharedpref" path="." />
+        <exclude domain="external" path="." />
+    </cloud-backup>
+    <device-transfer>
+        <include domain="database" path="." />
+        <include domain="sharedpref" path="." />
+    </device-transfer>
+</data-extraction-rules>
