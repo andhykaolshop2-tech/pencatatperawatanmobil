@@ -15,7 +15,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -43,7 +43,7 @@ private const val TREND_POINTS = 24
 @Composable
 fun StatsTab(entries: List<LogEntry>, modifier: Modifier = Modifier) {
     val fmt = LocalFmt.current
-    var period by rememberSaveable { mutableStateOf(PERIOD_12_MONTHS) }
+    var period by rememberSaveable { mutableIntStateOf(PERIOD_12_MONTHS) }
     val today = LocalDate.now()
     val todayDay = today.toEpochDay()
     val from: Long? = when (period) {

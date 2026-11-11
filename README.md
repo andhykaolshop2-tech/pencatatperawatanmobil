@@ -21,15 +21,27 @@ Planned for later updates: several vehicles, automatic backups, an optional one-
 Requirements: Android Studio with JDK 17 or 21, Android SDK Platform 36.
 
 ```bash
-python tools/check_project.py     # static checks, no SDK needed
-./gradlew test                    # unit tests of the core logic
-./gradlew assembleDebug           # debug APK
-./gradlew bundleRelease           # release bundle (needs keystore.properties, see below)
+python tools/check_project.py              # static checks, no SDK needed
+./gradlew testDebugUnitTest                # unit tests of the core logic
+./gradlew lintRelease                      # Android lint
+./gradlew assembleDebug                    # debug APK
+./gradlew assembleRelease bundleRelease    # release APK + bundle (needs keystore.properties, see below)
 ```
 
 Release signing reads `keystore.properties` from the project root (template:
 `keystore.properties.example`). That file, keystores, `.env` and API keys are git-ignored and
 must never be committed — this repository is public.
+
+With a phone (USB debugging) or an emulator connected:
+
+```bash
+python tools/device_test.py --apk app/build/outputs/apk/release/app-release.apk   # end-to-end UI test
+python tools/take_screenshots.py     # real screenshots with example data, per listing language
+python tools/frame_screenshots.py    # Play Store screenshots, 1080×1920
+python tools/collect_release.py      # everything for the Play Console -> siap-upload/
+```
+
+Both device scripts wipe the data of the app on that device.
 
 ## Where things are
 
@@ -37,13 +49,14 @@ must never be committed — this repository is public.
 |---|---|
 | `app/` | The Android app (Kotlin, Jetpack Compose) |
 | `app/src/main/java/.../core/` | Pure logic with unit tests: units, statistics, CSV format, reminders |
-| `play-store/listing/` | Store listing texts (en-US, de-DE, optional en-GB) |
-| `play-store/graphics/` | App icon 512×512, feature graphic 1024×500, and the raw generated images |
-| `docs/privacy-policy.html` | Privacy policy page (English + German) |
-| `docs/CATATAN-PC-BUILD.md` | Build notes and the list of things that are not verified yet (Indonesian) |
+| `play-store/listing/` | Store listing texts (en-US, en-GB, de-DE) |
+| `play-store/graphics/` | App icon 512×512, feature graphic 1024×500, screenshot background, raw generated images |
+| `play-store/screenshots/` | Play Store screenshots per language, the raw captures and the captions |
+| `docs/privacy-policy.html` | Privacy policy (English + German); its marked part is pasted into a Blogger page |
+| `docs/CATATAN-PC-BUILD.md` | Build notes: what is verified and what is not (Indonesian) |
 | `docs/CONTEKAN-PLAY-CONSOLE.md` | Answers for the Play Console forms: Data safety, content rating, … (Indonesian) |
 | `docs/demo-data/` | Example CSV files for screenshots and import tests |
-| `tools/` | `generate_images.py` (store graphics), `make_demo_data.py`, `check_project.py` |
+| `tools/` | Python scripts: static checks, device test, screenshots, store graphics, release folder |
 
 ## Third-party software
 

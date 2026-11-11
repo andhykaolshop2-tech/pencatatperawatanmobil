@@ -141,6 +141,23 @@ class UnitsAndFmtTest {
     }
 
     @Test
+    fun moneyInputKeepsTwoDecimals() {
+        val german = Fmt(Locale.GERMANY, metric)
+        val english = Fmt(Locale.UK, british)
+        assertEquals("486.40", english.inputMoney(486.4))
+        assertEquals("486,40", german.inputMoney(486.4))
+        assertEquals("486", english.inputMoney(486.0))
+        assertEquals("0", english.inputMoney(0.0))
+        assertEquals("75.32", english.inputMoney(75.32))
+        assertEquals("12.345", english.inputMoney(12.345))
+        assertEquals("", english.inputMoney(Double.NaN))
+        for (value in listOf(0.0, 14.0, 486.4, 75.32, 1289.9, 12.345)) {
+            assertEquals(value, NumberInput.parse(german.inputMoney(value), Locale.GERMANY) ?: Double.NaN, 1e-9)
+            assertEquals(value, NumberInput.parse(english.inputMoney(value), Locale.UK) ?: Double.NaN, 1e-9)
+        }
+    }
+
+    @Test
     fun formattedValuesContainTheRightNumbersAndUnits() {
         val german = Fmt(Locale.GERMANY, metric)
         val english = Fmt(Locale.UK, british)

@@ -210,15 +210,15 @@
     <string name="settings_version">Version %1$s · PersonalizePro Labs</string>
 
     <!-- Export, import, delete -->
-    <string name="export_done">%1$d Einträge und %2$d Erinnerungen exportiert</string>
+    <string name="export_done">Export abgeschlossen (Einträge: %1$d, Erinnerungen: %2$d)</string>
     <string name="export_failed">Export fehlgeschlagen. Bitte einen anderen Speicherort wählen.</string>
     <string name="import_title">CSV-Datei importieren</string>
-    <string name="import_found">Diese Datei enthält %1$d Einträge und %2$d Erinnerungen.</string>
-    <string name="import_skipped">%1$d Zeilen konnten nicht gelesen werden und werden übersprungen.</string>
+    <string name="import_found">In dieser Datei gefunden – Einträge: %1$d, Erinnerungen: %2$d.</string>
+    <string name="import_skipped">Nicht lesbare Zeilen, die übersprungen werden: %1$d</string>
     <string name="import_mode_add">Zu meinen Daten hinzufügen (Duplikate werden übersprungen)</string>
     <string name="import_mode_replace">Meine Daten ersetzen (alles auf diesem Gerät wird vorher gelöscht)</string>
     <string name="import_action">Importieren</string>
-    <string name="import_done">%1$d Einträge und %2$d Erinnerungen importiert</string>
+    <string name="import_done">Import abgeschlossen (Einträge: %1$d, Erinnerungen: %2$d)</string>
     <string name="import_failed_title">Datei kann nicht importiert werden</string>
     <string name="import_failed_text">Die Datei ist keine Odolog-CSV-Datei oder sie ist leer. Wähle eine Datei, die aus dieser App exportiert wurde.</string>
     <string name="delete_all_text">Damit werden alle Einträge und Erinnerungen auf diesem Gerät endgültig gelöscht. Exportiere vorher eine CSV-Datei, wenn du eine Kopie behalten möchtest.</string>

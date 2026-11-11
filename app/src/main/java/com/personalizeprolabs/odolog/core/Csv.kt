@@ -42,7 +42,7 @@ object Csv {
      */
     fun parse(text: String): List<List<String>> {
         var s = text
-        if (s.startsWith("﻿")) s = s.substring(1)
+        if (s.startsWith("\uFEFF")) s = s.substring(1)
 
         var delimiter: Char? = null
         if (s.length >= 5 && s.substring(0, 4).equals("sep=", ignoreCase = true)) {

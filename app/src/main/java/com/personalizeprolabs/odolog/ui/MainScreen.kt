@@ -37,6 +37,7 @@ import com.personalizeprolabs.odolog.core.LogEntry
 import com.personalizeprolabs.odolog.core.Powertrain
 import com.personalizeprolabs.odolog.core.Reminder
 import com.personalizeprolabs.odolog.core.ReminderLogic
+import com.personalizeprolabs.odolog.reminders.ReminderNotifier
 import java.time.LocalDate
 import kotlinx.coroutines.launch
 
@@ -77,6 +78,7 @@ fun MainScreen(
                 app.repository.saveReminder(
                     reminder.copy(dueEpochDay = next, notifiedStage = ReminderLogic.STAGE_NONE)
                 )
+                ReminderNotifier.cancel(context, reminder.id)
                 snackbarHostState.showSnackbar(context.getString(R.string.reminder_next_due, fmt.date(next)))
             }
         }
@@ -107,25 +109,25 @@ fun MainScreen(
                     selected = tab == TAB_HOME,
                     onClick = { onTabChange(TAB_HOME) },
                     icon = { AppIcon(R.drawable.ic_home, contentDescription = null) },
-                    label = { Text(stringResource(R.string.tab_home)) },
+                    label = { TabLabel(stringResource(R.string.tab_home)) },
                 )
                 NavigationBarItem(
                     selected = tab == TAB_LOG,
                     onClick = { onTabChange(TAB_LOG) },
                     icon = { AppIcon(R.drawable.ic_list, contentDescription = null) },
-                    label = { Text(stringResource(R.string.tab_log)) },
+                    label = { TabLabel(stringResource(R.string.tab_log)) },
                 )
                 NavigationBarItem(
                     selected = tab == TAB_REMINDERS,
                     onClick = { onTabChange(TAB_REMINDERS) },
                     icon = { AppIcon(R.drawable.ic_bell, contentDescription = null) },
-                    label = { Text(stringResource(R.string.tab_reminders)) },
+                    label = { TabLabel(stringResource(R.string.tab_reminders)) },
                 )
                 NavigationBarItem(
                     selected = tab == TAB_STATS,
                     onClick = { onTabChange(TAB_STATS) },
                     icon = { AppIcon(R.drawable.ic_chart, contentDescription = null) },
-                    label = { Text(stringResource(R.string.tab_stats)) },
+                    label = { TabLabel(stringResource(R.string.tab_stats)) },
                 )
             }
         },
@@ -178,7 +180,10 @@ fun MainScreen(
             confirmButton = {
                 TextButton(onClick = {
                     reminderToRemove = null
-                    scope.launch { app.repository.deleteReminder(removing.id) }
+                    scope.launch {
+                        app.repository.deleteReminder(removing.id)
+                        ReminderNotifier.cancel(context, removing.id)
+                    }
                 }) { Text(stringResource(R.string.reminder_done_remove)) }
             },
             dismissButton = {
@@ -186,6 +191,12 @@ fun MainScreen(
             },
         )
     }
+}
+
+/** Tab labels stay on one line, also with a large font size and long German words. */
+@Composable
+private fun TabLabel(text: String) {
+    Text(text = text, maxLines = 1, softWrap = false, overflow = TextOverflow.Ellipsis)
 }
 
 /** The floating "+" button with a small menu: fill-up, charge, service / other cost. */

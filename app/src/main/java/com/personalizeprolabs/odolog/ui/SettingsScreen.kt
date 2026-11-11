@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
@@ -39,6 +38,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -371,7 +371,7 @@ fun SettingsScreen(settings: AppSettings, entries: List<LogEntry>, reminders: Li
 /** The rows for vehicle and units; shared by the settings screen and the first-run setup. */
 @Composable
 private fun VehicleAndUnitRows(settings: AppSettings, onChange: (AppSettings) -> Unit) {
-    var dialog by remember { mutableStateOf(DIALOG_NONE) }
+    var dialog by remember { mutableIntStateOf(DIALOG_NONE) }
     val close = { dialog = DIALOG_NONE }
     val currencies = remember(settings.currencyCode) {
         (listOf(settings.currencyCode, Defaults.currencyFor(Locale.getDefault())) + Defaults.COMMON_CURRENCIES).distinct()
@@ -647,10 +647,37 @@ private fun readAtMost(input: InputStream, limit: Int): ByteArray? {
 
 private fun readRawText(context: Context, id: Int): String {
     return try {
-        context.resources.openRawResource(id).bufferedReader().use { it.readText() }
+        reflow(context.resources.openRawResource(id).bufferedReader().use { it.readText() })
     } catch (e: Exception) {
         ""
     }
+}
+
+/**
+ * The licence file is hard-wrapped at 80 columns and indented. This joins the lines of
+ * each paragraph, so that the text wraps to the width of the screen instead.
+ */
+private fun reflow(text: String): String {
+    val result = StringBuilder()
+    val paragraph = StringBuilder()
+    for (line in text.lines()) {
+        val trimmed = line.trim()
+        if (trimmed.isEmpty()) {
+            if (paragraph.isNotEmpty()) {
+                if (result.isNotEmpty()) result.append("\n\n")
+                result.append(paragraph)
+                paragraph.setLength(0)
+            }
+        } else {
+            if (paragraph.isNotEmpty()) paragraph.append(' ')
+            paragraph.append(trimmed)
+        }
+    }
+    if (paragraph.isNotEmpty()) {
+        if (result.isNotEmpty()) result.append("\n\n")
+        result.append(paragraph)
+    }
+    return result.toString()
 }
 
 private fun appVersionName(context: Context): String {
@@ -672,8 +699,9 @@ private fun openUrl(context: Context, url: String) {
 /** Android 13+: the system screen where the language of this app can be chosen. */
 private fun openAppLanguageSettings(context: Context) {
     try {
+        // The value of Settings.ACTION_APP_LOCALE_SETTINGS (a constant that only exists from API 33).
         context.startActivity(
-            Intent(Settings.ACTION_APP_LOCALE_SETTINGS, Uri.fromParts("package", context.packageName, null))
+            Intent("android.settings.APP_LOCALE_SETTINGS", Uri.fromParts("package", context.packageName, null))
         )
     } catch (e: Exception) {
         // Not available on this device.

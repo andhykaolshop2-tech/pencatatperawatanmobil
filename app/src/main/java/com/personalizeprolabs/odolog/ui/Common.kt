@@ -38,6 +38,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -218,7 +222,8 @@ fun PickerField(
         OutlinedTextField(
             value = value,
             onValueChange = {},
-            modifier = Modifier.fillMaxWidth(),
+            // Screen readers get the description of the layer below instead of this field.
+            modifier = Modifier.fillMaxWidth().clearAndSetSemantics { },
             label = { Text(label) },
             readOnly = true,
             singleLine = true,
@@ -229,7 +234,12 @@ fun PickerField(
             },
         )
         // A read-only text field does not report clicks, so a transparent layer on top does.
-        Box(Modifier.matchParentSize().clickable(onClickLabel = label, onClick = onClick))
+        Box(
+            Modifier
+                .matchParentSize()
+                .clickable(onClickLabel = label, role = Role.Button, onClick = onClick)
+                .semantics { contentDescription = "$label: $value" }
+        )
     }
 }
 

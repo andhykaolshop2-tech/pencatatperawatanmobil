@@ -26,6 +26,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -63,14 +64,14 @@ fun EntryEditScreen(type: EntryType, entryId: Long, entries: List<LogEntry>, onD
     val existing = remember(entryId) { entries.firstOrNull { it.id == entryId } }
     val isExpense = type == EntryType.EXPENSE
 
-    var date by rememberSaveable { mutableStateOf(existing?.dateEpochDay ?: LocalDate.now().toEpochDay()) }
+    var date by rememberSaveable { mutableLongStateOf(existing?.dateEpochDay ?: LocalDate.now().toEpochDay()) }
     var odometerText by rememberSaveable {
         mutableStateOf(existing?.odometerKm?.let { fmt.inputDistance(it) } ?: "")
     }
     var quantityText by rememberSaveable {
         mutableStateOf(if (existing != null && existing.quantity > 0.0) fmt.inputQuantity(type, existing.quantity) else "")
     }
-    var costText by rememberSaveable { mutableStateOf(if (existing != null) fmt.input(existing.totalCost, 2) else "") }
+    var costText by rememberSaveable { mutableStateOf(if (existing != null) fmt.inputMoney(existing.totalCost) else "") }
     var isFull by rememberSaveable { mutableStateOf(existing?.isFull ?: true) }
     var missedPrevious by rememberSaveable { mutableStateOf(existing?.missedPrevious ?: false) }
     var categoryCode by rememberSaveable { mutableStateOf((existing?.category ?: ExpenseCategory.SERVICE).code) }
@@ -144,6 +145,10 @@ fun EntryEditScreen(type: EntryType, entryId: Long, entries: List<LogEntry>, onD
                         IconButton(onClick = { confirmDelete = true }) {
                             AppIcon(R.drawable.ic_delete, contentDescription = stringResource(R.string.action_delete))
                         }
+                    }
+                    // Always reachable, also while the keyboard covers the button at the bottom.
+                    IconButton(onClick = save, enabled = !saving) {
+                        AppIcon(R.drawable.ic_check, contentDescription = stringResource(R.string.action_save))
                     }
                 },
             )

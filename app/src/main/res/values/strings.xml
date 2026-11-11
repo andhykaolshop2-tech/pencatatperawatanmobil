@@ -7,7 +7,7 @@
   Rules for editing: write apostrophes as ’ (or escape them as \'), write & as &amp;,
   use positional arguments (%1$s, %1$d) and avoid a literal percent sign.
 -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="en">
     <string name="app_name" translatable="false">Odolog</string>
 
     <!-- Common actions -->
@@ -219,15 +219,16 @@
     <string name="settings_version">Version %1$s · PersonalizePro Labs</string>
 
     <!-- Export, import, delete -->
-    <string name="export_done">Exported %1$d entries and %2$d reminders</string>
+    <!-- The numbers are placed after the nouns on purpose, so that no plural forms are needed. -->
+    <string name="export_done">Export finished (entries: %1$d, reminders: %2$d)</string>
     <string name="export_failed">Export failed. Please try another location.</string>
     <string name="import_title">Import CSV file</string>
-    <string name="import_found">This file contains %1$d entries and %2$d reminders.</string>
-    <string name="import_skipped">%1$d rows could not be read and will be skipped.</string>
+    <string name="import_found">Found in this file – entries: %1$d, reminders: %2$d.</string>
+    <string name="import_skipped">Rows that could not be read and will be skipped: %1$d</string>
     <string name="import_mode_add">Add to my data (duplicates are skipped)</string>
     <string name="import_mode_replace">Replace my data (everything on this phone is deleted first)</string>
     <string name="import_action">Import</string>
-    <string name="import_done">Imported %1$d entries and %2$d reminders</string>
+    <string name="import_done">Import finished (entries: %1$d, reminders: %2$d)</string>
     <string name="import_failed_title">Cannot import this file</string>
     <string name="import_failed_text">The file is not an Odolog CSV file, or it is empty. Choose a file that was exported from this app.</string>
     <string name="delete_all_text">This permanently deletes every entry and reminder on this phone. Export a CSV file first if you want to keep a copy.</string>

@@ -40,5 +40,41 @@
       }
     ],
     "selected": "feature-01-ab358f9c.png"
+  },
+  "screenshot_bg": {
+    "attempts": [
+      {
+        "uuid": "f44ccb64-dde5-11f1-954a-6a8bb1e5b8d9",
+        "model": "gpt-image-2",
+        "request": {
+          "aspect_ratio": "9:16",
+          "mode": "low",
+          "resolution": "4K"
+        },
+        "prompt": "An abstract vertical background image for app store screenshots, in a flat, minimal, modern vector style. Deep teal (#0B5F6A) base colour that fills the whole canvas. A few very large, soft geometric shapes in slightly lighter and slightly darker teal: wide overlapping circles and gentle diagonal bands, very subtle, low contrast, calm and uncluttered. One thin amber (#FFB300) arc as a small accent near the lower right corner. The upper third is the calmest area, almost plain teal. No text, no letters, no numbers, no icons, no objects, no cars, no phone, no people, no logo, no watermark.",
+        "submitted_at": "2026-11-11T15:38:34Z",
+        "estimated_credit": 4,
+        "status": "failed",
+        "finished_at": "2026-11-11T15:39:33Z",
+        "error": "GPT_IMAGE_2_GENERATION_FAILED: Video generated failed"
+      },
+      {
+        "uuid": "395307e6-dde6-11f1-89f6-4e311071d936",
+        "model": "gpt-image-2",
+        "request": {
+          "aspect_ratio": "9:16",
+          "mode": "low",
+          "resolution": "4K"
+        },
+        "prompt": "An abstract vertical background image for app store screenshots, in a flat, minimal, modern vector style. Deep teal (#0B5F6A) base colour that fills the whole canvas. A few very large, soft geometric shapes in slightly lighter and slightly darker teal: wide overlapping circles and gentle diagonal bands, very subtle, low contrast, calm and uncluttered. One thin amber (#FFB300) arc as a small accent near the lower right corner. The upper third is the calmest area, almost plain teal. No text, no letters, no numbers, no icons, no objects, no cars, no phone, no people, no logo, no watermark.",
+        "submitted_at": "2026-11-11T15:40:30Z",
+        "estimated_credit": 4,
+        "status": "completed",
+        "file": "screenshot_bg-02-395307e6.png",
+        "finished_at": "2026-11-11T15:41:44Z",
+        "used_credit": 4
+      }
+    ],
+    "selected": "screenshot_bg-02-395307e6.png"
   }
 }

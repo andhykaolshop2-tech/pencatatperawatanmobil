@@ -17,5 +17,10 @@ The full text of the Apache License 2.0 is included in the app
 (`app/src/main/res/raw/apache_license_2_0.txt`, shown under *Settings → Open-source licenses*)
 and is available at <https://www.apache.org/licenses/LICENSE-2.0>.
 
-The app icon and the feature graphic in `play-store/graphics/` were generated for this
-project with an AI image service (see `tools/generate_images.py`).
+The app icon, the feature graphic and the screenshot background in `play-store/graphics/` were
+generated for this project with an AI image service (see `tools/generate_images.py`).
+
+The captions on the Play Store screenshots (`play-store/screenshots/`) are set in the Inter
+typeface (The Inter Project Authors, SIL Open Font License 1.1). The font file itself is not part
+of this repository or of the app; `tools/frame_screenshots.py` uses the copy that ships with
+Android Studio.

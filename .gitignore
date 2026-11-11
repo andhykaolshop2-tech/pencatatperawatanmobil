@@ -13,6 +13,7 @@ google-services.json
 
 # Gradle / Android
 .gradle/
+.kotlin/
 build/
 **/build/
 captures/
@@ -36,3 +37,8 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local emulator data and release output (large, machine-specific)
+.avd/
+/siap-upload/
+/signing/

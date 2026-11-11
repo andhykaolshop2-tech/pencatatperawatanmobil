@@ -24,7 +24,7 @@ object NumberInput {
         for (ch in text) {
             when (ch) {
                 // whitespace and apostrophes are only ever used for grouping
-                ' ', '\t', ' ', ' ', ' ', '\'', '’' -> Unit
+                ' ', '\t', '\u00A0', '\u202F', '\u2009', '\'', '\u2019' -> Unit
                 else -> sb.append(ch)
             }
         }

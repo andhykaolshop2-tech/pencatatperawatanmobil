@@ -12,7 +12,12 @@
       { "path": "app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png", "size": [162, 162], "content_scale": 0.86 },
       { "path": "app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png", "size": [216, 216], "content_scale": 0.86 },
       { "path": "app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png", "size": [324, 324], "content_scale": 0.86 },
-      { "path": "app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png", "size": [432, 432], "content_scale": 0.86 }
+      { "path": "app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png", "size": [432, 432], "content_scale": 0.86 },
+      { "path": "app/src/main/res/mipmap-mdpi/ic_launcher_monochrome.png", "size": [108, 108], "content_scale": 0.86, "monochrome": true },
+      { "path": "app/src/main/res/mipmap-hdpi/ic_launcher_monochrome.png", "size": [162, 162], "content_scale": 0.86, "monochrome": true },
+      { "path": "app/src/main/res/mipmap-xhdpi/ic_launcher_monochrome.png", "size": [216, 216], "content_scale": 0.86, "monochrome": true },
+      { "path": "app/src/main/res/mipmap-xxhdpi/ic_launcher_monochrome.png", "size": [324, 324], "content_scale": 0.86, "monochrome": true },
+      { "path": "app/src/main/res/mipmap-xxxhdpi/ic_launcher_monochrome.png", "size": [432, 432], "content_scale": 0.86, "monochrome": true }
     ]
   },
   "feature": {
@@ -20,6 +25,13 @@
     "prompt": "A wide promotional banner for a car maintenance and fuel log app named \"Odolog\", in a flat, minimal, modern vector illustration style. Background: deep teal (#0B5F6A) with a few very subtle, slightly lighter teal geometric shapes. Left third: the single word \"Odolog\" as a large, bold, clean geometric sans-serif wordmark in white, spelled exactly O-d-o-l-o-g, with a small white odometer gauge emblem with an amber needle above it. Right two thirds: a friendly white side-view compact car in a simple flat style, surrounded by five floating round badges with simple white line icons: a fuel pump, a charging plug with a lightning bolt, a wrench, a calendar with a small bell, and a small bar chart; a few amber (#FFB300) accents. No other text, no slogan, no phone mockup, no logo of any real brand, no watermark. Keep the wordmark and all important elements inside the central area and leave the top 14 percent and the bottom 14 percent of the image as plain background, because those strips will be cropped.",
     "outputs": [
       { "path": "play-store/graphics/feature-graphic-1024x500.png", "size": [1024, 500] }
+    ]
+  },
+  "screenshot_bg": {
+    "aspect_ratio": "9:16",
+    "prompt": "An abstract vertical background image for app store screenshots, in a flat, minimal, modern vector style. Deep teal (#0B5F6A) base colour that fills the whole canvas. A few very large, soft geometric shapes in slightly lighter and slightly darker teal: wide overlapping circles and gentle diagonal bands, very subtle, low contrast, calm and uncluttered. One thin amber (#FFB300) arc as a small accent near the lower right corner. The upper third is the calmest area, almost plain teal. No text, no letters, no numbers, no icons, no objects, no cars, no phone, no people, no logo, no watermark.",
+    "outputs": [
+      { "path": "play-store/graphics/screenshot-background.png", "size": [1080, 1920] }
     ]
   }
 }

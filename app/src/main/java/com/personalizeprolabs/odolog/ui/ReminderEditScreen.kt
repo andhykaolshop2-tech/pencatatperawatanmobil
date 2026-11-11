@@ -34,6 +34,8 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -48,6 +50,7 @@ import com.personalizeprolabs.odolog.R
 import com.personalizeprolabs.odolog.core.Reminder
 import com.personalizeprolabs.odolog.core.ReminderKind
 import com.personalizeprolabs.odolog.core.ReminderLogic
+import com.personalizeprolabs.odolog.reminders.ReminderNotifier
 import java.time.LocalDate
 import kotlinx.coroutines.launch
 
@@ -77,14 +80,14 @@ fun ReminderEditScreen(reminderId: Long, reminders: List<Reminder>, onDone: () -
     var title by rememberSaveable { mutableStateOf(existing?.title ?: "") }
     var kindCode by rememberSaveable { mutableStateOf((existing?.kind ?: ReminderKind.SERVICE).code) }
     var due by rememberSaveable {
-        mutableStateOf(existing?.dueEpochDay ?: LocalDate.now().plusMonths(12).toEpochDay())
+        mutableLongStateOf(existing?.dueEpochDay ?: LocalDate.now().plusMonths(12).toEpochDay())
     }
-    var repeatMonths by rememberSaveable { mutableStateOf(existing?.repeatMonths ?: 12) }
-    var notifyDays by rememberSaveable { mutableStateOf(existing?.notifyDaysBefore ?: 14) }
+    var repeatMonths by rememberSaveable { mutableIntStateOf(existing?.repeatMonths ?: 12) }
+    var notifyDays by rememberSaveable { mutableIntStateOf(existing?.notifyDaysBefore ?: 14) }
     var note by rememberSaveable { mutableStateOf(existing?.note ?: "") }
     var showErrors by rememberSaveable { mutableStateOf(false) }
     var saving by remember { mutableStateOf(false) }
-    var dialog by remember { mutableStateOf(DIALOG_NONE) }
+    var dialog by remember { mutableIntStateOf(DIALOG_NONE) }
 
     val kind = ReminderKind.fromCode(kindCode) ?: ReminderKind.SERVICE
     val titleMissing = title.isBlank()
@@ -115,6 +118,8 @@ fun ReminderEditScreen(reminderId: Long, reminders: List<Reminder>, onDone: () -
             val reminder = draft.copy(notifiedStage = ReminderLogic.stageFor(draft, today))
             scope.launch {
                 app.repository.saveReminder(reminder)
+                // A notification that is still showing belongs to the old version of the reminder.
+                if (existing != null) ReminderNotifier.cancel(context, existing.id)
                 val needsPermission = Build.VERSION.SDK_INT >= 33 &&
                     context.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
                 if (needsPermission) {
@@ -142,6 +147,10 @@ fun ReminderEditScreen(reminderId: Long, reminders: List<Reminder>, onDone: () -
                         IconButton(onClick = { dialog = DIALOG_DELETE }) {
                             AppIcon(R.drawable.ic_delete, contentDescription = stringResource(R.string.action_delete))
                         }
+                    }
+                    // Always reachable, also while the keyboard covers the button at the bottom.
+                    IconButton(onClick = save, enabled = !saving) {
+                        AppIcon(R.drawable.ic_check, contentDescription = stringResource(R.string.action_save))
                     }
                 },
             )
@@ -254,6 +263,7 @@ fun ReminderEditScreen(reminderId: Long, reminders: List<Reminder>, onDone: () -
                         dialog = DIALOG_NONE
                         scope.launch {
                             app.repository.deleteReminder(existing.id)
+                            ReminderNotifier.cancel(context, existing.id)
                             onDone()
                         }
                     }) { Text(stringResource(R.string.action_delete)) }

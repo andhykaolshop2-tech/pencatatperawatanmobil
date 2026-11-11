@@ -51,7 +51,8 @@ fun EntryRow(entry: LogEntry, economy: EconomyInterval?, onClick: () -> Unit, mo
         modifier = modifier.fillMaxWidth().clickable(onClick = onClick).padding(horizontal = 16.dp, vertical = 10.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        AppIcon(entryIconRes(entry), contentDescription = typeLabel, tint = MaterialTheme.colorScheme.primary)
+        // Decorative: the title next to it already says what kind of entry this is.
+        AppIcon(entryIconRes(entry), contentDescription = null, tint = MaterialTheme.colorScheme.primary)
         Spacer(Modifier.width(16.dp))
         Column(Modifier.weight(1f)) {
             Text(
@@ -107,7 +108,7 @@ fun ReminderLine(reminder: Reminder, todayEpochDay: Long, onClick: () -> Unit, m
             Text(
                 text = reminder.title,
                 style = MaterialTheme.typography.bodyLarge,
-                maxLines = 1,
+                maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
             )
             Text(

@@ -1,0 +1,29 @@
+{
+  "en-US": {
+    "01-overview": "Know what your car\nreally costs",
+    "02-statistics": "Fuel economy and\ncost per mile",
+    "03-log": "Fill-ups and service\nin one log book",
+    "04-reminders": "Reminders for service\nand inspection",
+    "05-electric-car": "Made for electric\ncars too",
+    "06-new-fill-up": "Add a fill-up\nin seconds",
+    "07-privacy": "No account. No ads.\nData stays on your phone."
+  },
+  "en-GB": {
+    "01-overview": "Know what your car\nreally costs",
+    "02-statistics": "Fuel economy and\ncost per mile",
+    "03-log": "Fill-ups and servicing\nin one log book",
+    "04-reminders": "Reminders for service\nand MOT",
+    "05-electric-car": "Made for electric\ncars too",
+    "06-new-fill-up": "Add a fill-up\nin seconds",
+    "07-privacy": "No account. No ads.\nData stays on your phone."
+  },
+  "de-DE": {
+    "01-overview": "Wisse, was dein Auto\nwirklich kostet",
+    "02-statistics": "Verbrauch und Kosten\npro Kilometer",
+    "03-log": "Tanken und Service\nin einem Fahrzeugbuch",
+    "04-reminders": "Erinnerungen für\nService und HU",
+    "05-electric-car": "Auch für\nElektroautos",
+    "06-new-fill-up": "Tankfüllung in\nSekunden eintragen",
+    "07-privacy": "Kein Konto. Keine Werbung.\nDaten bleiben auf dem Gerät."
+  }
+}

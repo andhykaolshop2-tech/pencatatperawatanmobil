@@ -48,7 +48,7 @@ class CsvTest {
 
     @Test
     fun parseSkipsByteOrderMarkAndSeparatorHint() {
-        assertEquals(listOf(listOf("a", "b")), Csv.parse("﻿a,b\n"))
+        assertEquals(listOf(listOf("a", "b")), Csv.parse("\uFEFFa,b\n"))
         assertEquals(listOf(listOf("a", "b"), listOf("1", "2")), Csv.parse("sep=;\r\na;b\r\n1;2\r\n"))
     }
 

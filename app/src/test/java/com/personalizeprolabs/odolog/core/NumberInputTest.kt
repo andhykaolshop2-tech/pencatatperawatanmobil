@@ -56,7 +56,7 @@ class NumberInputTest {
     @Test
     fun spacesAndApostrophesAreGrouping() {
         assertParses(1234.5, "1 234,5", de)
-        assertParses(1234.5, "1 234.5", us)
+        assertParses(1234.5, "1\u00A0234.5", us)
         assertParses(1234.5, "1'234.5", us)
     }
 

@@ -128,6 +128,24 @@ PROFILES = {
         ],
         partial_note="Kurz am Schnelllader nachgeladen",
     ),
+    # New profiles go at the end: the random seed of a profile depends on its position.
+    "demo-ev-en-GB": dict(
+        vehicle="Electric car", powertrain="electric", currency="GBP", distance_unit="mi",
+        quantity_unit="kwh", start_odometer=9240, leg=(95, 170), economy=(26.0, 31.0), economy_kind="kwh_100mi",
+        price=(0.12, 0.62), every_days=(4, 8),
+        expenses=[
+            (-330, "insurance", "Car insurance", 648.00, "Annual premium"),
+            (-200, "tires", "Two rear tyres", 228.00, "Fitted and balanced"),
+            (-120, "cleaning", "Car wash", 9.00, ""),
+            (-40, "service", "Pollen filter", 42.00, ""),
+        ],
+        reminders=[
+            (19, "inspection", "MOT", 12, 30, "Book early"),
+            (58, "other", "Insurance renewal", 12, 14, ""),
+            (163, "service", "Brake fluid check", 24, 14, ""),
+        ],
+        partial_note="Quick top-up at a rapid charger",
+    ),
 }
 
 

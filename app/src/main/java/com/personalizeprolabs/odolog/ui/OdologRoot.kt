@@ -8,9 +8,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -31,7 +33,7 @@ private const val ROUTE_REMINDER = "reminder"
 
 /** Root of the UI: collects the app state and decides which screen is shown. */
 @Composable
-fun OdologRoot(startOnReminders: Boolean, notificationsEnabled: Boolean) {
+fun OdologRoot(openRemindersRequest: Int, notificationsEnabled: Boolean) {
     val app = LocalContext.current.applicationContext as OdologApp
     val settings by app.settings.settings.collectAsState()
     val setupDone by app.settings.setupDone.collectAsState()
@@ -43,8 +45,16 @@ fun OdologRoot(startOnReminders: Boolean, notificationsEnabled: Boolean) {
     val fmt = remember(settings, locale) { Fmt(locale, settings) }
 
     var route by rememberSaveable { mutableStateOf(ROUTE_MAIN) }
-    var tab by rememberSaveable { mutableStateOf(if (startOnReminders) TAB_REMINDERS else TAB_HOME) }
+    var tab by rememberSaveable { mutableIntStateOf(TAB_HOME) }
     val goBack = { route = ROUTE_MAIN }
+
+    // A tap on a reminder notification: show the reminders tab, whatever was open before.
+    LaunchedEffect(openRemindersRequest) {
+        if (openRemindersRequest > 0) {
+            route = ROUTE_MAIN
+            tab = TAB_REMINDERS
+        }
+    }
 
     CompositionLocalProvider(LocalFmt provides fmt) {
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {

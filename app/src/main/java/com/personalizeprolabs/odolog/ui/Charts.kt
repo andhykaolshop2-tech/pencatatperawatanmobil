@@ -18,7 +18,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -44,7 +44,7 @@ fun MonthlyCostChart(months: List<MonthCost>, modifier: Modifier = Modifier) {
     val fmt = LocalFmt.current
     val energyColor = MaterialTheme.colorScheme.primary
     val otherColor = AccentAmber
-    var selected by remember(months) { mutableStateOf(months.lastIndex) }
+    var selected by remember(months) { mutableIntStateOf(months.lastIndex) }
     val max = months.maxOfOrNull { it.total } ?: 0.0
 
     Column(modifier = modifier.fillMaxWidth().padding(horizontal = 16.dp)) {

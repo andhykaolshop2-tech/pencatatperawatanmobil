@@ -329,7 +329,7 @@ object Backup {
 
     /** A non-negative number written with a decimal point or a decimal comma. */
     private fun number(text: String): Double? {
-        val t = text.replace(" ", "").replace(" ", "").replace(" ", "")
+        val t = text.replace(" ", "").replace("\u00A0", "").replace("\u202F", "")
         if (t.isEmpty()) return null
         val lastComma = t.lastIndexOf(',')
         val lastDot = t.lastIndexOf('.')

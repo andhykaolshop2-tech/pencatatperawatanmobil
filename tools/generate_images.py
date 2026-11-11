@@ -351,8 +351,12 @@ def process_job(job_name: str, job: dict, state: dict) -> bool:
             nh = round(image.width / ratio)
             top = round((image.height - nh) * out.get("v_anchor", 0.5))
             image = image.crop((0, top, image.width, top + nh))
+        if out.get("monochrome"):
+            # White emblem on transparent: the "monochrome" layer of the adaptive icon,
+            # which Android 13+ tints for themed icons.
+            image = _monochrome(image, corner)
         image = image.resize((tw, th), lanczos)
-        if not out.get("alpha", False):
+        if not out.get("alpha", False) and not out.get("monochrome"):
             flat = Image.new("RGB", image.size, corner)
             flat.paste(image, mask=image.split()[3])
             image = flat
@@ -378,6 +382,20 @@ def _corner_color(image) -> tuple[int, int, int]:
         for i in range(3):
             total[i] += mean[i]
     return (round(total[0] / len(corners)), round(total[1] / len(corners)), round(total[2] / len(corners)))
+
+
+def _monochrome(image, background: tuple[int, int, int]):
+    """Everything that differs from the flat background becomes white, the rest transparent."""
+    from PIL import Image, ImageChops
+    rgb = image.convert("RGB")
+    difference = ImageChops.difference(rgb, Image.new("RGB", rgb.size, background))
+    red, green, blue = difference.split()
+    strongest = ImageChops.lighter(ImageChops.lighter(red, green), blue)
+    # below 24 = background noise, above 144 = fully part of the emblem, soft edge in between
+    alpha = strongest.point(lambda value: 0 if value < 24 else min(255, (value - 24) * 255 // 120))
+    result = Image.new("RGBA", rgb.size, (255, 255, 255, 0))
+    result.putalpha(alpha)
+    return result
 
 
 def _shrink_onto_background(image, scale: float, color: tuple[int, int, int], resample):

@@ -67,6 +67,21 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    lint {
+        // Switched off on purpose:
+        //  - the "newer version available" checks: the versions in gradle/libs.versions.toml are
+        //    one tested set and are upgraded together, not one by one;
+        //  - OldTargetApi: the app targets API 36 by decision;
+        //  - UseKtx: core-ktx is deliberately not a dependency (few dependencies).
+        disable += setOf(
+            "GradleDependency",
+            "NewerVersionAvailable",
+            "AndroidGradlePluginVersion",
+            "OldTargetApi",
+            "UseKtx",
+        )
+    }
 }
 
 tasks.withType<KotlinCompile>().configureEach {

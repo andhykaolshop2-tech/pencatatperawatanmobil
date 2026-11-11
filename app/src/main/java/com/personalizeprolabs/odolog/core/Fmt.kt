@@ -93,6 +93,21 @@ class Fmt(val locale: Locale, val settings: AppSettings) {
         return if (decimalComma) plain.replace('.', ',') else plain
     }
 
+    /**
+     * Text for a money input field: whole amounts without decimals ("486"), otherwise at
+     * least two decimals ("486.40"); more are kept when the stored amount has them.
+     */
+    fun inputMoney(amount: Double): String {
+        if (amount.isNaN() || amount.isInfinite()) return ""
+        val exact = BigDecimal.valueOf(amount).setScale(4, RoundingMode.HALF_UP).stripTrailingZeros()
+        val plain = when {
+            exact.scale() <= 0 -> exact.toPlainString()
+            exact.scale() <= 2 -> exact.setScale(2, RoundingMode.HALF_UP).toPlainString()
+            else -> exact.toPlainString()
+        }
+        return if (decimalComma) plain.replace('.', ',') else plain
+    }
+
     // ------------------------------------------------------------------ dates
 
     fun date(epochDay: Long): String = dateFormatter.format(LocalDate.ofEpochDay(epochDay))

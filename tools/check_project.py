@@ -14,6 +14,8 @@ crash) much later:
   * Kotlin files have balanced brackets, and names that are imported in one file are
     not used without import in another one (heuristic, reported as a warning)
   * Play Store listing texts respect the length limits
+  * icon, feature graphic and framed screenshots have the sizes the Play Store asks for
+  * the privacy policy page has no placeholders left and matches the address in the app
 
 Usage:  python tools/check_project.py        (exit code 1 when an ERROR was found)
 Only the Python standard library is used.
@@ -384,6 +386,67 @@ def check_privacy_policy() -> None:
     url = re.search(r'name="privacy_policy_url"[^>]*>([^<]+)<', config)
     if not url or not url.group(1).startswith("https://"):
         error("values/config.xml: privacy_policy_url must be an https:// address")
+    elif url.group(1).strip() not in text:
+        warn("docs/privacy-policy.html does not mention the address in values/config.xml ("
+             + url.group(1).strip() + ") - is the page published at that address?")
+    for marker in ("<!-- BLOGGER: COPY FROM HERE -->", "<!-- BLOGGER: COPY UNTIL HERE -->"):
+        if text.count(marker) != 1:
+            error(f"docs/privacy-policy.html: the marker '{marker}' must be there exactly once")
+
+
+# ------------------------------------------------------------------- graphics
+
+def png_info(path: pathlib.Path) -> tuple[int, int, bool] | None:
+    """(width, height, has an alpha channel) of a PNG file, read from its header."""
+    with path.open("rb") as handle:
+        head = handle.read(26)
+    if len(head) < 26 or head[:8] != b"\x89PNG\r\n\x1a\n":
+        return None
+    width, height = int.from_bytes(head[16:20], "big"), int.from_bytes(head[20:24], "big")
+    return width, height, head[25] in (4, 6)
+
+
+def check_graphics() -> None:
+    graphics = ROOT / "play-store" / "graphics"
+    for name, size in (("icon-512.png", (512, 512)), ("feature-graphic-1024x500.png", (1024, 500))):
+        file = graphics / name
+        info = png_info(file) if file.exists() else None
+        if info is None:
+            error(f"{rel(file)} is missing or not a PNG file")
+        elif info[:2] != size:
+            error(f"{rel(file)}: {info[0]}x{info[1]}, expected {size[0]}x{size[1]}")
+        elif name.startswith("feature") and info[2]:
+            error(f"{rel(file)}: must not have transparency")
+
+    shots = ROOT / "play-store" / "screenshots"
+    folders = sorted(p for p in shots.iterdir() if p.is_dir() and p.name != "raw") if shots.exists() else []
+    if not folders:
+        warn("play-store/screenshots has no framed screenshots yet (tools/take_screenshots.py, then "
+             "tools/frame_screenshots.py)")
+        return
+    for folder in folders:
+        files = sorted(folder.glob("*.png"))
+        if not 2 <= len(files) <= 8:
+            error(f"{rel(folder)}: {len(files)} screenshots, the Play Store wants 2 to 8")
+        for file in files:
+            info = png_info(file)
+            if info is None:
+                error(f"{rel(file)} is not a PNG file")
+                continue
+            width, height, alpha = info
+            if not (320 <= width <= 3840 and 320 <= height <= 3840):
+                error(f"{rel(file)}: {width}x{height}, every side must be between 320 and 3840 px")
+            elif width * 16 != height * 9 and width * 9 != height * 16:
+                error(f"{rel(file)}: {width}x{height} is neither 9:16 nor 16:9")
+            if alpha:
+                error(f"{rel(file)}: must not have transparency")
+            if file.stat().st_size > 8 * 1024 * 1024:
+                error(f"{rel(file)}: larger than 8 MB")
+        print(f"  {rel(folder)}: {len(files)} screenshots")
+    if LISTING.exists():
+        for locale in sorted(p.name for p in LISTING.iterdir() if p.is_dir()):
+            if not (shots / locale).exists():
+                warn(f"play-store/screenshots/{locale} is missing (the listing has texts for {locale})")
 
 
 def main() -> int:
@@ -397,6 +460,8 @@ def main() -> int:
     print("Checking Play Store listing ...")
     check_listing()
     check_privacy_policy()
+    print("Checking Play Store graphics ...")
+    check_graphics()
     for message in warnings:
         print("WARNING", message)
     for message in errors:
