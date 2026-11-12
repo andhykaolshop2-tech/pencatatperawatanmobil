@@ -25,7 +25,8 @@ android {
         applicationId = "com.personalizeprolabs.odolog"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
+        // versionCode 1 was uploaded to the Play Console once and discarded; a code can never be used twice.
+        versionCode = 2
         versionName = "1.0.0"
     }
 

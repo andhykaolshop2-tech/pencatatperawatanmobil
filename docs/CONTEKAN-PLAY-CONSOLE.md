@@ -93,9 +93,13 @@ Halaman ini harus dibuat dulu di Blogger (blog yang sama dengan app pertama):
    Potongan siap tempel juga ada di `siap-upload/4-kebijakan-privasi/tempel-di-blogger.html`.
 4. **Publikasikan**, lalu buka alamat di atas dan pastikan halamannya tampil (Inggris + Jerman).
 
-Alamat itu sudah tertanam di dalam app (Settings → Privacy → Full policy). Kalau Blogger memberi
-alamat lain, ubah `privacy_policy_url` di `app/src/main/res/values/config.xml`, build ulang AAB
-(`versionCode` tetap 1 selama belum pernah diupload), dan pakai alamat baru itu di Play Console.
+**Status 12 November 2026: halaman sudah dipublikasikan dan alamatnya persis seperti di atas.**
+Langkah di atas tetap berguna kalau isi halaman perlu diperbarui (edit halaman yang sama; alamatnya
+tidak berubah).
+
+Alamat itu tertanam di dalam app (Settings → Privacy → Full policy). Kalau suatu saat alamatnya
+berubah, ubah `privacy_policy_url` di `app/src/main/res/values/config.xml`, naikkan `versionCode`,
+build ulang AAB, dan pakai alamat baru itu di Play Console.
 
 Halaman memuat nama developer, email `personalizeprolabs@gmail.com`, dan tautan ke halaman
 "PersonalizePro Labs" di blog untuk alamat lengkap — sama seperti kebijakan privasi app pertama.
@@ -186,6 +190,10 @@ dan klaim "tanpa internet" di listing serta kebijakan privasi jadi salah.
 - **Play App Signing**: terima (default). Kunci di `signing/odolog-upload.jks` adalah *upload key*;
   AAB di `siap-upload/1-aab/` sudah ditandatangani dengan kunci itu. Cadangkan file keystore dan
   `keystore.properties` (lihat `docs/CATATAN-PC-BUILD.md` bagian 4).
+- **versionCode**: AAB sekarang memakai `versionCode 2` (versionName tetap 1.0.0). Kode 1 pernah
+  diupload lalu dibatalkan, dan Play Console menolak kode yang pernah dipakai walaupun rilisnya
+  dibuang. Kalau sebuah upload dibatalkan lagi setelah AAB-nya terunggah, naikkan kodenya lagi di
+  `app/build.gradle.kts`, build ulang, lalu jalankan `python tools/collect_release.py`.
 - **Akun developer pribadi baru** (dibuat setelah 13 November 2023): Google mewajibkan *closed
   testing* dengan minimal 12 penguji selama 14 hari sebelum boleh rilis produksi. Cek status akun
   Anda di Play Console; kalau berlaku, mulai dari track *Closed testing*.
@@ -200,7 +208,8 @@ dan klaim "tanpa internet" di listing serta kebijakan privasi jadi salah.
 
 ## 5. Daftar periksa sebelum menekan "Send for review"
 
-- [ ] Halaman kebijakan privasi sudah dipublikasikan di Blogger dan bisa dibuka di alamat di atas
+- [x] Halaman kebijakan privasi sudah dipublikasikan di Blogger dan bisa dibuka di alamat di atas
+      (dicek 12 November 2026)
 - [ ] Alamat kebijakan privasi di Play Console **sama persis** dengan `privacy_policy_url` di
       `app/src/main/res/values/config.xml`
 - [ ] APK rilis sudah dicoba di HP sungguhan (sejauh ini hanya diuji di emulator Android 16) —

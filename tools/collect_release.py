@@ -138,11 +138,22 @@ def _elements(node: bytes):
             yield from _elements(child)
 
 
-def bundle_permissions(aab: pathlib.Path) -> list[str]:
-    """The permissions the bundle requests: its <uses-permission> entries (the manifest is a protobuf)."""
-    manifest = zipfile.ZipFile(aab).read("base/manifest/AndroidManifest.xml")
-    return sorted(attributes.get("name", "") for name, attributes in _elements(manifest)
-                  if name.startswith("uses-permission"))
+def bundle_manifest(aab: pathlib.Path) -> list[tuple[str, dict[str, str]]]:
+    """All elements of the bundle's manifest (it is stored as a protobuf, not as XML text)."""
+    return list(_elements(zipfile.ZipFile(aab).read("base/manifest/AndroidManifest.xml")))
+
+
+def bundle_permissions(manifest: list[tuple[str, dict[str, str]]]) -> list[str]:
+    """The permissions the bundle requests: its <uses-permission> entries."""
+    return sorted(attributes.get("name", "") for name, attributes in manifest if name.startswith("uses-permission"))
+
+
+def bundle_version(manifest: list[tuple[str, dict[str, str]]]) -> tuple[str, str, str]:
+    """(package, versionCode, versionName) as they are written inside the bundle."""
+    for name, attributes in manifest:
+        if name == "manifest":
+            return attributes.get("package", ""), attributes.get("versionCode", ""), attributes.get("versionName", "")
+    return "", "", ""
 
 
 def copy(source: pathlib.Path, target: pathlib.Path) -> None:
@@ -158,7 +169,11 @@ def main() -> int:
         fail("the bundle is not signed: create keystore.properties (see keystore.properties.example)")
     if AAB.stat().st_mtime < newest_source_time():
         fail("the bundle is older than the app sources: build again, then run this script again")
-    permissions = bundle_permissions(AAB)
+    manifest = bundle_manifest(AAB)
+    if bundle_version(manifest) != (app_id, code, name):
+        fail(f"the bundle is {bundle_version(manifest)} but app/build.gradle.kts says {(app_id, code, name)}: "
+             "build again, then run this script again")
+    permissions = bundle_permissions(manifest)
     if not permissions or "android.permission.INTERNET" in permissions:
         fail("unexpected permissions in the bundle: " + ", ".join(permissions)
              + " - the listing and the privacy policy promise an app without internet access")
@@ -219,12 +234,13 @@ def main() -> int:
         "",
         "## Urutan kerja",
         "",
-        "1. **Kebijakan privasi di Blogger** - Blogger -> Halaman -> Halaman baru. Judul harus persis",
-        "   `Odolog Privacy Policy`. Ganti ke *Tampilan HTML*, tempel seluruh isi",
-        "   `4-kebijakan-privasi/tempel-di-blogger.html`, lalu Publikasikan. Alamatnya harus menjadi:",
+        "1. **Kebijakan privasi** - pastikan halaman ini tayang (alamat ini tertanam di dalam app):",
         f"   <{url}>",
-        "   Alamat itu sudah tertanam di dalam app. Kalau Blogger memberi alamat lain, ubah",
-        "   `privacy_policy_url` di `app/src/main/res/values/config.xml`, build ulang, jalankan script ini lagi.",
+        "   Kalau belum ada: Blogger -> Halaman -> Halaman baru, judul persis `Odolog Privacy Policy`,",
+        "   ganti ke *Tampilan HTML*, tempel seluruh isi `4-kebijakan-privasi/tempel-di-blogger.html`,",
+        "   lalu Publikasikan. Kalau isinya berubah: edit halaman yang sama dan tempel ulang.",
+        "   Kalau alamatnya berbeda, ubah `privacy_policy_url` di `app/src/main/res/values/config.xml`,",
+        "   naikkan `versionCode`, build ulang, dan jalankan script ini lagi.",
         "2. **Play Console** - buat app, isi formulir memakai `5-contekan/CONTEKAN-PLAY-CONSOLE.md`.",
         "3. **Listing** - salin teks dari `2-listing/` dan unggah grafik dari `3-grafik/` per bahasa.",
         f"4. **Rilis** - unggah `1-aab/{base}.aab`, catatan rilis dari `release_notes.txt`.",

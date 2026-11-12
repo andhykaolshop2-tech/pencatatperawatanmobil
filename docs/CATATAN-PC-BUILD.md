@@ -12,7 +12,7 @@ Dokumen ini menjelaskan cara mengulanginya, apa yang sudah terbukti jalan, dan a
 | Nama app | Odolog |
 | applicationId / namespace | `com.personalizeprolabs.odolog` (**permanen** setelah upload pertama ke Play) |
 | minSdk / targetSdk / compileSdk | 26 (Android 8.0) / 36 / 36 |
-| Versi | versionCode 1, versionName 1.0.0 (`app/build.gradle.kts`) |
+| Versi | versionCode 2, versionName 1.0.0 (`app/build.gradle.kts`). versionCode 1 pernah diupload ke Play Console lalu dibatalkan, jadi tidak bisa dipakai lagi |
 | Bahasa | Kotlin 2.0.21, UI Jetpack Compose (Material 3) |
 | Build | Gradle 8.13 (wrapper), Android Gradle Plugin 8.13.0 |
 | Dependensi | Compose BOM 2025.02.00 (ui, foundation, material3), activity-compose 1.9.3, kotlinx-coroutines-android 1.9.0, JUnit 4.13.2 (test) |
@@ -98,6 +98,9 @@ Hasil build:
 
 Tanpa `keystore.properties`, build rilis tetap jalan tetapi hasilnya tidak ditandatangani.
 Untuk rilis berikutnya naikkan `versionCode` (wajib, +1) dan `versionName`.
+Play Console menolak `versionCode` yang pernah diupload, **juga kalau rilisnya dibatalkan**:
+setiap kali sebuah AAB sudah terunggah, upload berikutnya butuh kode baru. Setelah menaikkannya:
+build ulang, lalu `python tools/collect_release.py`.
 
 ## 5. Tes otomatis di perangkat
 
@@ -166,6 +169,7 @@ Script menolak jalan kalau AAB belum ditandatangani atau lebih tua daripada sour
 | Tanda tangan AAB | `jarsigner -verify` | "jar verified", ditandatangani upload key |
 | Data contoh | diimpor di app; angka statistik sama dengan hitungan di luar app | cocok |
 | Teks listing, grafik, screenshot, kebijakan privasi | `python tools/check_project.py` | 0 error |
+| Halaman kebijakan privasi di Blogger | dibuka di browser, 12 November 2026 | tayang di alamat yang tertanam di app, Inggris + Jerman lengkap |
 
 Catatan: di manifest ada tulisan `android.permission.DUMP`. Itu bukan izin yang diminta app,
 melainkan pelindung receiver bawaan AndroidX (`ProfileInstallReceiver`); normal untuk app Compose.
@@ -186,8 +190,6 @@ melainkan pelindung receiver bawaan AndroidX (`ProfileInstallReceiver`); normal 
 6. **Play Console.** Formulir di `docs/CONTEKAN-PLAY-CONSOLE.md` ditulis tanpa membuka Play
    Console; bunyi pertanyaan bisa berbeda. Laporan pra-peluncuran (pre-launch report) Play akan
    menguji app di beberapa perangkat sungguhan setelah AAB diupload — bacalah hasilnya.
-7. **Halaman kebijakan privasi** baru ada sebagai file; alamat di dalam app baru benar setelah
-   halaman Blogger dipublikasikan dengan judul yang tepat (lihat contekan, bagian 3).
 
 ## 9. Daftar tes manual (yang belum dicakup tes otomatis)
 

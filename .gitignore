@@ -42,3 +42,6 @@ Thumbs.db
 .avd/
 /siap-upload/
 /signing/
+# Zipped copies of the release folder contain the signed bundle
+/siap-upload*.zip
+*.zip
